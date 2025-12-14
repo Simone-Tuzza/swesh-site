@@ -1,0 +1,36 @@
+# --- Pagina 404 personalizzata ---
+ErrorDocument 404 /404.html
+
+# --- Cache (statici) ---
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType font/woff2 "access plus 30 days"
+  ExpiresDefault "access plus 1 hour"
+</IfModule>
+
+# ETag leggero
+FileETag MTime Size
+
+# --- Security headers basici ---
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set X-XSS-Protection "1; mode=block"
+  # se non usi inline script, valuta CSP (commentato perché rompe se non configurato)
+  # Header set Content-Security-Policy "default-src 'self'; img-src 'self' data:; font-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self';"
+</IfModule>
+
+# --- PHP (solo se sul tuo hosting serve) ---
+# AddType application/x-httpd-php .php
+# AddHandler application/x-httpd-php .php .php5 .phtml
+
+# --- Disabilita listing di cartelle ---
+Options -Indexes
+
+

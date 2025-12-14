@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta name="description" content="Swesh è la piattaforma gratuita per lo scambio di vestiti tra privati. Dai nuova vita ai tuoi abiti usati: trova, proponi e condividi capi con altri utenti." />
+    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8" />
+  <link rel="shortcut icon" type="image/png" href="assets/img/swesh.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SWESH - Moda Circolare</title>
+
+  <!-- CSS globale del sito -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Font per i titoli -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+
+
+<style>
+    :root{
+      --brand:#fd9ef8;
+      --bg:#000;
+      --text:#fff;
+      --muted:rgba(255,255,255,.7);
+      --card:rgba(255,255,255,.06);
+      --ring:rgba(255,255,255,.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Helvetica Neue", Arial, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .muted{ color:var(--muted); }
+
+
+    main {
+      padding: 5rem 0 4rem;
+    }
+
+    .section {
+      padding: 3.5rem 0;
+    }
+
+    .section.narrow {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    /* LABEL / TITOLI */
+
+    .section-header-center {
+      text-align: center;
+      margin-bottom: 2.6rem;
+    }
+
+    .section-header-left {
+      margin-bottom: 2.2rem;
+    }
+
+    .label-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--ring);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 0.9rem;
+    }
+
+    .label-pill span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--brand);
+      box-shadow: 0 0 18px rgba(253,158,248,0.9);
+    }
+
+    .section-title {
+      font-size: clamp(2.1rem, 3.3vw, 2.6rem);
+      line-height: 1.1;
+      margin-bottom: 0.7rem;
+    }
+
+    .section-title span.highlight {
+      color: var(--brand);
+    }
+
+    .section-subtitle {
+      max-width: 640px;
+      font-size: 0.98rem;
+      color: var(--muted);
+    }
+
+    .section-header-center .section-subtitle {
+      margin: 0.5rem auto 0;
+      text-align: center;
+    }
+
+    /* GRID LAYOUTS */
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2.6rem;
+      align-items: flex-start;
+    }
+
+    .two-col.reverse {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    }
+
+    /* CARDS */
+
+    .card-simple {
+      border-radius: 1.6rem;
+      border: 1px solid var(--ring);
+      background: var(--card);
+      padding: 1.8rem 1.6rem 1.9rem;
+      box-shadow: 0 22px 60px rgba(0,0,0,0.85);
+    }
+
+    .card-simple-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+
+    .card-simple-text {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .card-simple-list {
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding-left: 1rem;
+      display: grid;
+      gap: 0.3rem;
+    }
+
+    /* BORDO PRIMA TRATTEGGIATO -> ORA LINEARE BRAND + GLOW */
+    .highlight-note {
+      margin-top: 0.9rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      border-radius: 1.1rem;
+      border: 1px solid var(--brand);
+      padding: 0.9rem 1rem;
+      background: rgba(0,0,0,0.75);
+      box-shadow:
+        0 0 16px rgba(253,158,248,0.35),
+        0 0 32px rgba(253,158,248,0.18);
+    }
+
+    .chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.9rem;
+    }
+
+    .chip {
+      font-size: 0.76rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--ring);
+      color: var(--muted);
+      background: rgba(0,0,0,0.6);
+    }
+
+    /* CTA CARD HERO */
+
+    .cta-card {
+      border-radius: 2rem;
+      border: 1px solid var(--ring);
+      background:
+        linear-gradient(145deg, rgba(253,158,248,0.28), transparent 48%),
+        var(--card);
+      padding: 2.2rem 2rem 2.4rem;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.95);
+    }
+
+    .cta-title {
+      font-size: 1.9rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .cta-text {
+      font-size: 0.96rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0.5rem 0 1.9rem;
+    }
+
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: flex-start;
+    }
+
+    .input-pill {
+      min-width: 0;
+      padding: 0.9rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid var(--ring);
+      background: rgba(0,0,0,0.85);
+      color: var(--text);
+      font-size: 0.9rem;
+      outline: none;
+      transition:
+        border-color 0.22s ease,
+        box-shadow 0.22s ease,
+        background 0.22s ease;
+    }
+
+    .input-pill::placeholder {
+      color: rgba(255,255,255,0.5);
+    }
+
+    .input-pill:focus {
+      border-color: var(--brand);
+      box-shadow:
+        0 0 0 1px rgba(253,158,248,0.4),
+        0 0 24px rgba(253,158,248,0.5);
+      background: rgba(0,0,0,0.96);
+    }
+
+    /* NUOVO BOTTONE HERO */
+
+    .btn-hero {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.95rem 1.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--brand);
+      background: transparent;
+      color: var(--text);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      cursor: pointer;
+      transition:
+        transform 0.16s ease,
+        box-shadow 0.22s ease,
+        background 0.18s ease,
+        color 0.18s ease;
+      box-shadow:
+        0 0 0 0 rgba(253,158,248,0),
+        0 0 0 0 rgba(253,158,248,0);
+    }
+
+    .btn-hero span.icon {
+      font-size: 1.1rem;
+      transform: translateY(1px);
+    }
+
+    .btn-hero:hover {
+      background: var(--brand);
+      color: #000;
+      transform: translateY(-1px);
+      box-shadow:
+        0 0 26px rgba(253,158,248,0.6),
+        0 0 70px rgba(253,158,248,0.35);
+    }
+
+    /* BOTTONE CLASSICO (ALTRE CTA) */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.7rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: var(--brand);
+      color: #000;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      cursor: pointer;
+      transition:
+        transform 0.16s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease;
+      box-shadow:
+        0 0 28px rgba(253,158,248,0.55),
+        0 0 70px rgba(253,158,248,0.35);
+    }
+
+    .btn span.icon {
+      font-size: 1.1rem;
+      transform: translateY(1px);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 0 36px rgba(253,158,248,0.8),
+        0 0 90px rgba(253,158,248,0.45);
+    }
+
+    .form-footnote {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 1rem;
+      line-height: 1.5;
+    }
+
+    /* BLOCCO IMMAGINE / MOCKUP */
+
+    .image-block {
+      border-radius: 2rem;
+      border: 1px solid var(--ring);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(253,158,248,0.5), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(255,255,255,0.12), transparent 55%),
+        var(--card);
+      padding: 1.8rem;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+.image-inner {
+  width: 100%;
+  border-radius: 1.6rem;
+  border: 1px solid rgba(255,255,255,0.12);
+  overflow: hidden;           /* arrotonda e taglia eventuali sbordi */
+}
+
+/* regole per l’immagine vera */
+.image-inner img {
+  display: block;
+  width: 100%;
+  height: auto;               /* mostra tutta l'immagine, senza tagliarla */
+  object-fit: contain;        /* se vuoi vederla intera */
+  /* se invece vuoi riempire il riquadro e accetti un po’ di crop:
+     object-fit: cover; */
+}
+
+    .image-tag {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.7);
+      border: 1px solid rgba(255,255,255,0.18);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+    
+    
+    
+    
+    .image-clean {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* rimuove qualunque riquadro / bordo */
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.image-clean img {
+  width:95%;
+  height: auto;
+  object-fit: contain; /* mostra l'immagine intera */
+  display: block;
+}
+
+
+.image-block,
+.image-inner,
+.image-tag,
+.image-placeholder-text {
+  all: unset;
+}
+
+    .image-placeholder-text {
+      position: absolute;
+      bottom: 1.1rem;
+      left: 1.2rem;
+      right: 1.2rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.9);
+      max-width: 240px;
+    }
+
+    /* CTA CARD FINALE CON IMMAGINE A DESTRA */
+
+    .cta-card-final {
+      border-radius: 2rem;
+      border: 1px solid var(--ring);
+      background:
+        linear-gradient(140deg, rgba(253,158,248,0.23), transparent 50%),
+        var(--card);
+      padding: 2.4rem 2rem 2.6rem;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.95);
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .cta-final-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .cta-final-text {
+      text-align: left;
+    }
+
+    .cta-final-text .cta-title {
+      margin-bottom: 0.6rem;
+    }
+
+    .cta-final-text .cta-text {
+      margin-bottom: 1.7rem;
+    }
+
+    .cta-final-image {
+      border-radius: 1.8rem;
+      border: 1px solid var(--ring);
+      padding: 1.4rem;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(253,158,248,0.45), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(255,255,255,0.12), transparent 55%),
+        rgba(0,0,0,0.7);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.9);
+    }
+
+    .cta-final-image-inner {
+      border-radius: 1.3rem;
+      border: 1px solid rgba(255,255,255,0.14);
+      aspect-ratio: 4 / 3;
+      background:
+        linear-gradient(135deg, rgba(253,158,248,0.7), rgba(0,0,0,0.9));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-final-tag {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.7);
+      border: 1px solid rgba(255,255,255,0.2);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .cta-final-copy {
+      position: absolute;
+      bottom: 1rem;
+      left: 1.2rem;
+      right: 1.2rem;
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.95);
+    }
+
+    /* ANIMAZIONI SCROLL */
+
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition:
+        opacity 0.5s ease-out,
+        transform 0.5s ease-out;
+    }
+
+    [data-animate].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    [data-animate="delay"] {
+      transition-delay: 0.2s;
+    }
+
+    [data-animate="delay-long"] {
+      transition-delay: 0.35s;
+      transition-duration: 0.65s;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 960px) {
+      .two-col,
+      .two-col.reverse {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .image-block {
+        order: -1;
+      }
+
+      .cta-final-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      main {
+        padding-top: 4rem;
+      }
+
+      .cta-card,
+      .cta-card-final {
+        padding-inline: 1.6rem;
+      }
+
+      .form-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .input-pill,
+      .btn,
+      .btn-hero {
+        width: 100%;
+      }
+
+      .section-header-left .section-subtitle {
+        max-width: none;
+      }
+    }
+    
+
+.footer-panel {
+  width: 100%;
+  padding: 40px 20px 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-panel .panel {
+  background: #0d0d0d;                 /* il colore esatto che vuoi */
+  border: 1px solid #1a1a1a;            /* il contorno visibile ma elegante */
+  border-radius:9999px;               /* bordi grandi come nello screenshot */
+  padding: 14px 22px;
+  max-width: 1100px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);  /* l'ombra morbida */
+}
+
+.footer-panel a {
+  color: #fff !important;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.footer-panel span {
+  opacity: 0.8;
+}
+    
+    
+    /* OVERRIDE per avere solo il PNG pulito nella CTA finale */
+.cta-final-image {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-final-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 420px;   /* cambia qui se la vuoi più piccola/grande */
+  object-fit: contain;
+}
+@font-face {
+  font-family: 'PPGatwickBold';
+  src: url('assets/fonts/PPGatwick-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+.section-title .highlight {
+  font-family: 'PPGatwickBold', sans-serif;
+  font-weight: bold;
+    font-size: 65px;
+}
+    
+    .highlights{
+        font-family: 'PPGatwickBold', sans-serif;
+  font-weight: bold;
+    font-size: 30px;
+         color: #fd9ef8;
+    }
+.investor-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  align-items: center; /* centra immagine + card nella colonna destra */
+}
+
+.investor-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.investor-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 360px;     /* regola tu la grandezza max dell’immagine */
+  object-fit: contain;  /* PNG pulito, non tagliato */
+}
+@media (max-width: 960px) {
+  .two-col,
+  .two-col.reverse {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+    .team-grid {
+  margin-top: 2.8rem;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.6rem;
+}
+
+/* Card singolo membro */
+.team-card {
+  border-radius: 1.6rem;
+  border: 1px solid var(--ring);
+  background: radial-gradient(circle at 0% 0%, rgba(253,158,248,0.22), transparent 55%),
+              var(--card);
+  padding: 1.6rem 1.4rem 1.7rem;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* avatar */
+.team-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.2);
+  margin-bottom: 0.9rem;
+}
+
+.team-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* testo */
+.team-name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.team-role {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  margin-bottom: 0.7rem;
+}
+
+.team-bio {
+  font-size: 0.86rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 0.9rem;
+}
+
+/* social */
+.team-socials {
+  margin-top: auto;
+  display: flex;
+  gap: 0.6rem;
+}
+
+.team-socials a {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  border: 1px solid var(--ring);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+  transition: border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.team-socials a:hover {
+  color: #000;
+  background: var(--brand);
+  border-color: var(--brand);
+  box-shadow: 0 0 18px rgba(253,158,248,0.7);
+}
+@media (max-width: 1100px) {
+  .team-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 840px) {
+  .team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .team-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .team-card {
+    align-items: flex-start;
+  }
+}
+   /* Footer pill */
+    .swesh-footer{
+      background:#000;
+      padding:40px 20px 80px;
+    }
+
+    .swesh-footer-pill{
+      max-width:1100px;
+      margin:0 auto;
+      padding:14px 22px;
+      border-radius:9999px;
+
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(10px);
+
+      text-align:center;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.95rem;
+      line-height: 1.6;
+
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,0.06),
+        0 2px 10px rgba(0,0,0,0.35);
+    }
+
+    .swesh-footer-pill p{ margin:0; }
+
+    @media (max-width: 560px){
+      .swesh-footer{ padding:30px 16px 60px; }
+      .swesh-footer-pill{ padding:12px 18px; font-size:0.9rem; }
+    }
+
+    .panel{
+      border-radius:28px;
+      padding:28px;
+      background:var(--card);
+      border:1px solid var(--ring);
+      backdrop-filter:saturate(140%) blur(10px);
+    }
+
+    .container{
+      max-width:1120px;
+      margin-inline:auto;
+      padding-inline:24px;
+    }
+    
+    .swesh-logo {
+  width: 85px;          /* dimensione perfetta per navbar */
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 0 6px rgba(253,158,248,0.6))
+          drop-shadow(0 0 14px rgba(253,158,248,0.3)); /* glow elegante */
+  transition: transform .2s ease, filter .2s ease;
+}
+
+.navbar .logo a {
+  display: flex;
+  align-items: center;
+}
+    
+    
+  </style>
+</head>
+<body>
+
+
+<!-- Overlay globale del sito -->
+     <div class="overlay"></div>
+
+  <!-- NAVBAR (uguale alla home, con “Visione” attivo) -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html" id="link-home">
+<img src="assets/img/stella.png" alt="Swesh Logo" class="swesh-logo">
+</a>
+    </div>
+    <div class="menu" id="menu">
+      <a href="chi-siamo.html" id="link-chi-siamo" class="active">Visione</a>
+    </div>
+    <div class="hamburger" id="hamburger">&#9776;</div>
+  </nav>
+
+
+
+
+
+<div class="page">
+  <main>
+    <!-- HERO -->
+    <section class="section" id="hero">
+      <div class="container">
+        <div class="section-header-center" data-animate>
+          <div class="label-pill">
+            <span class="dot"></span>
+            Swesh – fase early-stage
+          </div>
+          <h1 class="section-title">
+            L’inizio di un nuovo modo di vivere e condividere <span class="highlight">swesh</span>
+          </h1>
+          <p class="section-subtitle">
+            Stiamo costruendo un brand innovativo, progettato per portare un cambiamento reale nel mercato.</br>
+            Sei tra i primi a scoprire swesh: resta aggiornato sull’evoluzione del progetto ed entra nella
+            nostra cerchia di early-supporter e potenziali investitori.
+          </p>
+        </div>
+
+        <div class="two-col">
+          <!-- CTA TESTO -->
+          <div data-animate="delay">
+            <div class="cta-card">
+              <h2 class="cta-title">Unisciti alla lista esclusiva degli early-supporter.</h2>
+              <p class="cta-text">
+                Swesh è oggi un’idea in fase di definizione, ma la visione è già chiara:
+                  creare qualcosa di unico, significativo e scalabile.</br>
+                  Insieme a chi ci crede fin dall’inizio.
+              </p>
+                <form class="investor-form" id="investorFormHero">
+  <input type="email"
+class="input-pill"
+         id="emailInput"
+         name="email"
+         placeholder="Inserisci la tua email"required>
+  <button type="submit" class="btn-hero"> <span>Unisciti alla lista</span> <span class="icon"></span> </button>
+</form>
+
+              
+              <div class="form-footnote">
+                  Accesso ad aggiornamenti, materiali e informazioni riservate sul progetto.</br>
+                Solo progressi reali.
+              </div>
+            </div>
+          </div>
+
+          <!-- SPAZIO IMMAGINE / MOCKUP -->
+          <aside data-animate="delay-long">
+            <div class="image-clean">
+  <img src="assets/img/early.png" alt="Swesh Art">
+</div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEMA & OPPORTUNITÀ -->
+    <section class="section" id="problema">
+      <div class="container two-col">
+        <div data-animate>
+          <div class="section-header-left">
+            <div class="label-pill">
+              <span class="dot"></span>
+              Problema & Opportunità
+            </div>
+            <h2 class="section-title">Il bisogno è reale. L’opportunità è enorme.</h2>
+            <p class="section-subtitle">
+              Nel mercato attuale manca una soluzione che permetta alle persone di vivere
+              un’esperienza davvero coerente, semplice e significativa in questo ambito.
+              Lo scenario è frammentato, poco intuitivo e spesso poco curato dal punto di vista
+              dell’identità di brand.
+            </p>
+          </div>
+          <p class="card-simple-text">
+            Questo crea:
+          </p>
+          <ul class="card-simple-list">
+            <li>inefficienze e perdita di tempo;</li>
+            <li>esperienze poco memorabili, che non lasciano traccia;</li>
+            <li>scarso legame emotivo tra utenti e brand;</li>
+            <li>un grande spazio per chi sa proporre qualcosa di nuovo.</li>
+          </ul>
+          <div class="highlight-note">
+            Il mercato è pronto per qualcosa di diverso, giovane, premium e realmente centrato
+            sull’esperienza delle persone. Ed è qui che nasce swesh.
+          </div>
+        </div>
+
+        <div data-animate="delay">
+          <div class="card-simple">
+            <h3 class="card-simple-title">Perché questo momento è interessante</h3>
+            <p class="card-simple-text">
+              Cambiano le abitudini, cambiano i linguaggi, cambia la sensibilità verso i brand.
+              Chi oggi riesce a posizionarsi con un’identità chiara e un prodotto solido,
+              può costruire un vantaggio competitivo nel lungo periodo.
+            </p>
+            <p class="card-simple-text">
+              swesh vuole essere esattamente questo: un progetto che nasce nella contemporaneità,
+              con una forte attenzione al design, alla voce del brand e alla relazione con la propria community.
+            </p>
+            <div class="chips-row">
+              <span class="chip">Nuove abitudini digitali</span>
+              <span class="chip">Spazio per brand distintivi</span>
+              <span class="chip">Utenti in cerca di esperienze curate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOLUZIONE -->
+<section class="section" id="soluzione">
+  <div class="container two-col reverse">
+    <!-- COLONNA IMMAGINE -->
+    <div data-animate>
+      <div class="image-clean">
+        <img src="assets/img/idea.png" alt="Mockup Swesh">
+      </div>
+    </div>
+
+        <!-- Testo soluzione -->
+        <div data-animate="delay">
+          <div class="section-header-left">
+            <div class="label-pill">
+              <span class="dot"></span>
+              La nostra soluzione
+            </div>
+            <h2 class="section-title">Una visione chiara, un brand forte, un’idea concreta.</h2>
+            <p class="section-subtitle">
+              swesh è più di un semplice progetto: è un ecosistema che vuole unire
+              identità di brand, esperienza e tecnologia in una forma essenziale ma potente.
+            </p>
+          </div>
+
+          <p class="card-simple-text">
+            L’obiettivo è offrire un servizio che non solo risolve un problema,
+            ma che diventa parte della vita quotidiana delle persone,
+            riconoscibile e riconosciuto.
+          </p>
+          <ul class="card-simple-list">
+            <li>pensato per un pubblico giovane, dinamico e connesso;</li>
+            <li>costruito come brand, con un’estetica precisa e coerente;</li>
+            <li>progettato per essere scalabile e adattabile nel tempo;</li>
+            <li>guidato da valori di semplicità, connessione e cura del dettaglio.</li>
+          </ul>
+
+          <div class="highlight-note">
+            Stiamo lavorando per definire i pilastri fondamentali: concept,
+            linguaggio visivo, esperienza utente e architettura del progetto.
+            L’approccio è progressivo: first brand, poi prodotto.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSION & VISION -->
+    <section class="section" id="vision">
+      <div class="container">
+        <div class="section-header-center" data-animate>
+          <div class="label-pill">
+            <span class="dot"></span>
+            Mission & Vision
+          </div>
+          <h2 class="section-title">Da un’idea, una visione. Da una visione, un futuro.</h2>
+          <p class="section-subtitle">
+            La mission di Swesh è creare un brand che migliori l’esperienza delle persone
+            nella loro vita digitale e quotidiana, attraverso soluzioni intuitive,
+            accessibili e pensate con cura.
+          </p>
+        </div>
+
+        <div class="card-simple" data-animate="delay">
+          <p class="card-simple-text">
+            Immaginiamo swesh come un punto di riferimento nel suo settore:
+            un brand riconoscibile, innovativo e capace di costruire una community fedele.
+          </p>
+          <p class="card-simple-text">
+            Non vogliamo solo costruire un prodotto.
+            <strong>Vogliamo costruire un’identità.</strong>
+          </p>
+          <p class="card-simple-text" style="margin-top:0.8rem;">
+            Nel medio periodo, il percorso di swesh è fatto di step chiari:
+          </p>
+          <ul class="card-simple-list">
+            <li>definizione completa dell’identità di brand;</li>
+            <li>sviluppo delle prime iterazioni di servizio;</li>
+            <li>costruzione della community e dei primi early-adopter;</li>
+            <li>progressiva apertura a partnership e investimenti strategici.</li>
+          </ul>
+          <div class="highlight-note">
+            La vision è quella di un brand che cresce nel tempo,
+            rimanendo coerente con i valori con cui è nato.
+          </div>
+        </div>
+      </div>
+    </section>
+
+ <section class="section" id="investitori">
+  <div class="container two-col">
+
+    <!-- COLONNA SINISTRA -->
+    <div data-animate>
+      <div class="section-header-left">
+        <div class="label-pill">
+          <span class="dot"></span>
+          Per investitori & early-supporter
+        </div>
+        <h2 class="section-title">Perché credere in <span class="highlights">swesh</span> fin dall’inizio.</h2>
+        <p class="section-subtitle">
+            Siamo una startup in fase early-stage, ma il potenziale è chiaro.</br>
+          Stiamo lavorando su un progetto che unisce visione, design e
+          un contesto di mercato favorevole.
+        </p>
+      </div>
+
+      <p class="card-simple-text">
+        Entrare ora significa accompagnare la crescita di swesh dalle fondamenta:
+      </p>
+
+      <ul class="card-simple-list">
+        <li>accesso privilegiato a aggiornamenti e materiali strategici;</li>
+        <li>visibilità sulla roadmap e sulle prossime milestone;</li>
+        <li>priorità nel valutare future opportunità di investimento;</li>
+        <li>relazione diretta con il team nella fase più creativa del progetto.</li>
+      </ul>
+
+      <!-- QUI LA CARD -->
+      <div class="card-simple" style="margin-top:2rem;">
+        <h3 class="card-simple-title">Cosa offriamo oggi a chi si registra</h3>
+        <p class="card-simple-text">
+          swesh non è ancora sul mercato con un prodotto definitivo, e vogliamo
+          essere trasparenti su questo.
+        </p>
+        <p class="card-simple-text">
+          Chi lascia la propria email entra in una lista ristretta che riceverà:
+        </p>
+        <ul class="card-simple-list">
+          <li>aggiornamenti curati sullo stato di avanzamento del progetto;</li>
+          <li>contenuti riservati sulla visione e il posizionamento di Swesh;</li>
+          <li>il pitch deck quando sarà pronto per la condivisione;</li>
+          <li>inviti a eventuali call, presentazioni o anteprime;</li>
+        </ul>
+        <div class="highlight-note">
+          Solo comunicazioni pensate,
+          in linea con il tono e la cura che vogliamo dare al brand.
+        </div>
+      </div>
+    </div>
+
+   <div class="investor-side">
+
+  <!-- FOTO 1 (rimane sopra) -->
+  <div class="investor-image">
+    <img src="assets/img/investor.png" alt="Foto principale">
+  </div>
+
+  <!-- FOTO 2 (FINISCE SOTTO) -->
+  <div class="investor-image">
+    <img src="assets/img/roi.png" alt="Investor visual Swesh">
+  </div>
+
+</div>
+
+  </div>
+</section>
+
+
+   <!-- TEAM / TRUST -->
+<section class="section" id="team">
+  <div class="container">
+    <div class="section-header-center" data-animate>
+      <div class="label-pill">
+        <span class="dot"></span>
+        Chi c’è dietro
+      </div>
+      <h2 class="section-title">Un progetto giovane, costruito con serietà.</h2>
+      <p class="section-subtitle">
+        swesh nasce da un team motivato, creativo e con una forte attenzione
+        al design e all’innovazione.</br> Anche se siamo in una fase iniziale,
+        lavoriamo con metodo e trasparenza per costruire qualcosa di concreto.
+      </p>
+    </div>
+
+    <div class="card-simple" data-animate="delay">
+      <h3 class="card-simple-title">Cosa ci guida</h3>
+      <p class="card-simple-text">
+        Al centro del progetto ci sono pochi principi semplici:
+      </p>
+      <ul class="card-simple-list">
+        <li>ambizione, ma con i piedi per terra;</li>
+        <li>cura dei dettagli, sia visivi che strategici;</li>
+        <li>mentalità orientata al futuro, ma attenta all’esecuzione nel presente;</li>
+        <li>desiderio autentico di creare un impatto reale, non solo un hype momentaneo.</li>
+      </ul>
+      <div class="highlight-note">
+        Entrare ora significa unirsi al viaggio fin dall’inizio,
+        quando ogni scelta contribuisce a definire la direzione di swesh.
+      </div>
+    </div>
+
+    <!-- TEAM AREA -->
+    <div class="team-grid" data-animate="delay-long">
+      <!-- Member 1 -->
+      <article class="team-card">
+        <div class="team-avatar">
+          <img src="assets/img/mullet.JPG" alt="Nome Cognome - Ruolo Swesh">
+        </div>
+        <h3 class="team-name">Luca Sciabbarrasi</h3>
+        <p class="team-role">Co-founder & CEO</p>
+        <p class="team-bio">
+          Guida la visione di Swesh e coordina strategia, prodotto e team.
+          Si occupa di tenere allineata l’evoluzione del brand con gli obiettivi del progetto.
+        </p>
+        <div class="team-socials">
+          <a href="https://www.instagram.com/luca_sciabba/" aria-label="Instagram" target="_blank" rel="noopener">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/luca-sciabbarrasi-992196263/" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Member 2 -->
+      <article class="team-card">
+        <div class="team-avatar">
+          <img src="assets/img/soldo.png" alt="Nome Cognome - Ruolo Swesh">
+        </div>
+        <h3 class="team-name">Tiziano Soldo</h3>
+        <p class="team-role">Co-founder & Brand Design</p>
+        <p class="team-bio">
+          Cura identità visiva, tono di voce e coerenza estetica del brand Swesh
+          in ogni touchpoint, dall’interfaccia alle comunicazioni.
+        </p>
+        <div class="team-socials">
+          <a href="https://www.instagram.com/soldo_tiziano/" aria-label="Instagram" target="_blank" rel="noopener">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/tizianosoldo/" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Member 3 -->
+      <article class="team-card">
+        <div class="team-avatar">
+          <img src="assets/img/zack.JPG" alt="Nome Cognome - Ruolo Swesh">
+        </div>
+        <h3 class="team-name">Zakkaria Taoufik</h3>
+        <p class="team-role">Product & UX</p>
+        <p class="team-bio">
+          Si occupa dell’esperienza utente: flussi, prototipi e logica del prodotto,
+          per rendere Swesh intuitivo, fluido e piacevole da usare.
+        </p>
+        <div class="team-socials">
+          <a href="https://www.instagram.com/zakka7_/" aria-label="Instagram" target="_blank" rel="noopener">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Member 4 -->
+      <article class="team-card">
+        <div class="team-avatar">
+          <img src="assets/img/sapo.png" alt="Nome Cognome - Ruolo Swesh">
+        </div>
+        <h3 class="team-name">Damiano Saponaro</h3>
+        <p class="team-role">Tech & Development</p>
+        <p class="team-bio">
+          Trasforma i concept in qualcosa di reale, seguendo sviluppo e integrazioni
+          tecniche del progetto Swesh.
+        </p>
+        <div class="team-socials">
+          <a href="https://www.instagram.com/damianosaponaroo/" aria-label="GitHub" target="_blank" rel="noopener">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/damiano-saponaro-063534335/" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Member 5 -->
+      <article class="team-card">
+        <div class="team-avatar">
+          <img src="assets/img/tuzza.jpg" alt="Nome Cognome - Ruolo Swesh">
+        </div>
+        <h3 class="team-name">Simone Tuzza</h3>
+        <p class="team-role">Community & Partnerships</p>
+        <p class="team-bio">
+          Costruisce relazioni con community, brand e partner,
+          creando connessioni che danno valore al progetto e agli utenti.
+        </p>
+        <div class="team-socials">
+          <a href="https://www.instagram.com/tuzza._/" aria-label="Instagram" target="_blank" rel="noopener">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/simone-tuzza-a71bb1299/" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+    <!-- CTA FINALE CON SPAZIO IMMAGINE A DESTRA -->
+    <section class="section narrow" id="cta">
+      <div class="container">
+        <div class="cta-card-final" data-animate>
+          <div class="cta-final-grid">
+            <!-- Testo + form -->
+            <div class="cta-final-text">
+              <h2 class="cta-title">Costruiamo <span class="highlights">swesh</span> insieme.</h2>
+              <p class="cta-text">
+                Se credi nelle idee nuove, nell’innovazione e in un brand che vuole crescere in grande,
+                  questa è la fase più importante per farne parte.</br> Lascia la tua email e riceverai
+                aggiornamenti, contenuti riservati e informazioni sulle prossime opportunità legate a swesh.
+              </p>
+
+             <form class="investor-form" id="investorFormBottom">
+  <input type="email"
+         class="input-pill"
+         id="emailInput2"
+         name="email"
+         placeholder="Inserisci la tua email"
+         required>
+  <button type="submit" class="btn-hero">
+    <span>Unisciti alla lista</span> <span class="icon"></span>
+  </button>
+</form>
+              <div class="form-footnote">
+                Accesso ad aggiornamenti, materiali e informazioni riservate sul progetto.
+Solo progressi reali.
+              </div>
+            </div>
+
+            <!-- Immagine a destra -->
+              
+            <!-- Immagine a destra -->
+<div class="cta-final-image">
+  <img src="assets/img/build.png" alt="Investor preview" class="cta-final-img">
+</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+
+
+
+
+
+ <!-- FOOTER -->
+  <section class="container" style="padding-bottom:100px;">
+    <div class="panel center muted" style="font-size:.9rem;">
+      © <span id="year"></span> SWESH — Moda, Community, Memoria<br>
+      <a href="privacy.html" style="font-size:1.2rem" color="white">Privacy Policy</a>
+      <span>•</span>
+      <a href="cookies.html" style="font-size:1.2rem" color="white">Cookie Policy</a>
+    </div>
+  </section>
+
+ <script>
+  // --- CONFIG ---
+  const MAILERLITE_API_KEY = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiZWNkMmY1NGRiNjRmYTllOTYzNWM3NTQ4Mzk0MGRjYWM5NWExZWUwNDcyY2IyY2Q3ZTU2YmNlNTMyODllODU3YmNkZDQ3ZmU2NGMzNGE4NzkiLCJpYXQiOjE3NjUxOTY5NjMuNTA3OTYyLCJuYmYiOjE3NjUxOTY5NjMuNTA3OTY0LCJleHAiOjQ5MjA4NzA1NjMuNTAyMjQzLCJzdWIiOiIxOTg3MzcyIiwic2NvcGVzIjpbXX0.mO4H_aSQ1SMbqVei8UUWUsUqN-hWyiWX2FOgdmYL2JpghdZtY52eLXEcaIy9abRymsPNLgpkEgB0iHXR2angzUKSBZRCyJCZ_rL3DvwR3gezqnhxKtQubASGwXizKPN_82zNUkSBnh9YI24ELy7QWzVvfFyiC0Y7fOijzA_Y6spfqU4y3SaOMLB5baINz4B3xl_nPe9CDxrTCL34HkUwHWqLSGY_m70VflDK3BwJtPLIxpHQug-XWHYDhhH1iL-UuMMYscadeqfxEdSHq8L6XmXBTHFWDQg8OqitrqQzdreCQTOHMHA-js0Px31cl5hyOkaCxk6H32S9pYx-QyFClkgXZ_qWJvzvPrQVOPzY0QlXMbUjQ2KNZ0fuHT0d5DXFKs0QyowJYrKgOvqrR2SmFGgt1P6t5HddGZaysLWd3TO0UkMt7bpf-ex-asGpV4r5QNAwqSk6X1gj1P1ja5Smz8n47JWRUXroDZfEg84bhLJNrhKqITHWokTxvp7xU77iv0dr4gTeogJVKMRZFbGaGb_OFDmWM28D2NtG9WELMm1sloe1HAah11ayUtbnyV2bQDQxHddtfAC2UppB3owFqjhnRuA6n9tF0QokgAPLHXaFv1u-acudq-5Vnri35XicjN-Lg3iRc7vQXxg2btD85Fs98_oarRhzOG7tsn4rygI"; // la tua chiave
+  const WEBAPP_URL_INVESTITORI =
+    "https://script.google.com/macros/s/AKfycbwHZmKUEcVuS-gHc5uJG8Bqc51DYX7e62A9-zYV14a_mYv22qTuKdq1Aietqvv0-qGQ/exec";
+
+  const GROUP_INVESTITORI = 173264098640782327; // ID gruppo investitori
+
+  // --- FUNZIONE GENERICA PER UN FORM ---
+  function setupInvestorForm(formId, inputId) {
+    const form  = document.getElementById(formId);
+    const input = document.getElementById(inputId);
+
+    if (!form || !input) {
+      console.warn("Form o input non trovato per:", formId, inputId);
+      return;
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();  // niente ?email=...
+
+      const email = input.value.trim();
+      if (!email) return;
+
+      console.log("Invio email investitore:", email, "da", formId);
+
+      // 1) Invio ad Apps Script (salvataggio + mail a te)
+      try {
+        const data = new URLSearchParams({ email: email });
+
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon(WEBAPP_URL_INVESTITORI, data);
+        } else {
+          fetch(WEBAPP_URL_INVESTITORI, {
+            method: "POST",
+            body: data,
+            mode: "no-cors"
+          }).catch(err => console.error("Apps Script error:", err));
+        }
+      } catch (err) {
+        console.error("Apps Script exception:", err);
+      }
+
+      // 2) Invio a MailerLite (gruppo investitori)
+      fetch("https://connect.mailerlite.com/api/subscribers", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+          "Authorization": "Bearer " + MAILERLITE_API_KEY
+        },
+        body: JSON.stringify({
+          email: email,
+          groups: [GROUP_INVESTITORI],
+          status: "active"
+        })
+      })
+      .then(async res => {
+        const text = await res.text();
+        console.log("MailerLite status:", res.status, text);
+        // anche se MailerLite risponde 4xx, alla fine reindirizziamo comunque
+      })
+      .catch(err => {
+        console.error("MailerLite fetch error:", err);
+      })
+      .finally(() => {
+        // 3) Redirect alla thankyou page
+        window.location.href = "https://swesh.free.nf/grazie.html";
+      });
+    });
+  }
+
+  // --- ATTACCO I DUE FORM QUANDO IL DOM È PRONTO ---
+  document.addEventListener("DOMContentLoaded", function () {
+    setupInvestorForm("investorFormHero",   "emailInput");
+    setupInvestorForm("investorFormBottom", "emailInput2");
+  });
+</script>
+
+
+
+
+
+
+
+  <!-- JS specifico pagina (reveal, animazioni titoli, ecc.) -->
+  <script>
+    // anno nel footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // animazione titoli hero
+    window.addEventListener('load', () => {
+      const t1 = document.querySelector('.hero-title-s');
+      const t2 = document.querySelector('.hero-title-f');
+      const sub = document.querySelector('.hero-sub');
+
+      if (t1) setTimeout(() => t1.classList.add('show'), 300);
+      if (t2) setTimeout(() => t2.classList.add('show'), 420);
+      if (sub) setTimeout(() => sub.classList.add('show'), 550);
+    });
+
+    // IntersectionObserver per .reveal e #swipe .re-item
+    (function(){
+      const reItems = document.querySelectorAll('#swipe .re-item, .reveal');
+
+      if (!reItems.length) return;
+
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const delay = parseInt(entry.target.dataset.delay || '0', 10);
+            entry.target.style.transitionDelay = delay + 'ms';
+            entry.target.classList.add(entry.target.classList.contains('re-item') ? 'is-visible' : 'show');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      reItems.forEach(el => obs.observe(el));
+    })();
+
+    // piccola animazione sulla CTA
+    (function(){
+      const cta = document.querySelector('.cta');
+      if (!cta) return;
+      cta.addEventListener('mouseenter', () => cta.style.transform = 'translateY(-2px)');
+      cta.addEventListener('mouseleave', () => cta.style.transform = 'translateY(0)');
+    })();
+  </script>
+
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const t1 = document.querySelector('.hero-title-s');
+  const t2 = document.querySelector('.hero-title-f');
+  const sub = document.querySelector('.hero-sub');
+  const img = document.querySelector('.hero img');
+
+  function show(el, delay = 0) {
+    setTimeout(() => el.classList.add('show'), delay);
+  }
+
+  show(t1, 50);
+  show(t2, 200);
+  show(sub, 380);
+  show(img, 540);
+});
+</script>
+<script>
+  // Animazione scroll reveal
+  const animatedEls = document.querySelectorAll("[data-animate]");
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.18 }
+  );
+
+  animatedEls.forEach(el => observer.observe(el));
+</script>
+
+
+
+  <!-- JS globale (hamburger, overlay, ecc.) -->
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

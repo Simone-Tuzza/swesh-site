@@ -1,0 +1,1151 @@
+ <!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta name="description" content="Swesh è la piattaforma gratuita per lo scambio di vestiti tra privati. Dai nuova vita ai tuoi abiti usati: trova, proponi e condividi capi con altri utenti." />
+    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>SWESH - Moda Circolare</title>
+
+  <!-- Font preload -->
+  <link rel="preload" href="assets/fonts/PPGatwick-Bold.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- CSS principali -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
+  <!-- SEO / Social -->
+  <link rel="canonical" href="https://swesh.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://swesh.com/">
+  <meta property="og:title" content="SWESH – Scambia Moda, Crea Ricordi.">
+  <meta property="og:description" content="La piattaforma per scambiare moda in modo smart.">
+  <meta property="og:image" content="https://swesh.com/swesh-og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SWESH – Scambia Moda, Crea Ricordi.">
+  <meta name="twitter:description" content="La piattaforma per scambiare moda in modo smart.">
+  <meta name="twitter:image" content="https://swesh.com/swesh-og.png">
+
+  <!-- STILI SPECIFICI DELLA PAGINA (puoi portarli in style.css quando vuoi) -->
+  <style>
+    :root{
+      --brand:#fd9ef8;
+      --bg:#000;
+      --text:#fff;
+      --card:rgba(255,255,255,.06);
+      --ring:rgba(255,255,255,.12);
+    }
+      
+
+    .serif{ font-family:"Playfair Display",serif; }
+
+    .sw-sec{
+      background:#000;
+      color:#fff;
+      padding:140px 0 120px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .sw-wrap{
+      max-width:1200px;
+      margin:0 auto;
+      padding:0 40px;
+    }
+
+    .sw-eyebrow{
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:.8rem;
+      opacity:.75;
+      margin-bottom:8px;
+    }
+
+    .sw-h2{
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight:800;
+      letter-spacing:-.5px;
+      margin:0 0 28px;
+    }
+
+    .sw-h3{
+      font-size:1.25rem;
+      margin:0 0 8px;
+      font-weight:800;
+      letter-spacing:-.2px;
+    }
+
+    .muted{ color:rgba(255,255,255,.8); }
+
+    /* grid problemi */
+    .sw-grid3{
+      display:grid;
+      gap:24px;
+      grid-template-columns:repeat(3,1fr);
+    }
+
+    @media(max-width:900px){
+      .sw-grid3{ grid-template-columns:1fr; }
+    }
+
+    .glass-card{
+      position:relative;
+      border:1px solid var(--ring);
+      background:var(--card);
+      border-radius:24px;
+      padding:24px;
+      backdrop-filter: blur(12px) saturate(140%);
+      transform: translateY(24px) scale(.98);
+      opacity:0;
+      filter:blur(4px);
+      transition:
+        opacity .8s cubic-bezier(.16,1,.3,1),
+        transform .8s cubic-bezier(.16,1,.3,1),
+        filter .8s;
+    }
+
+    .glass-card.show{
+      opacity:1;
+      transform:translateY(0) scale(1);
+      filter:blur(0);
+      transition-delay: var(--delay, 0ms);
+    }
+
+    .glass-card:hover{
+      transform: translateY(-6px);
+      border-color: rgba(253,158,248,.35);
+      box-shadow: 0 18px 60px rgba(253,158,248,.18);
+    }
+
+    .illu{
+      display:flex;
+      justify-content:center;
+      margin-bottom:12px;
+    }
+
+    .illu img{
+      width:235px;
+      max-width:100%;
+      filter: drop-shadow(0 10px 28px rgba(253,158,248,.25));
+    }
+
+    .sw-list{
+      padding-left:18px;
+      margin:10px 0 0;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .sw-list li{ line-height:1.5; }
+
+    /* Soluzione */
+    .solu-grid{
+      display:grid;
+      gap:40px;
+      grid-template-columns:1.1fr 1fr;
+      align-items:center;
+    }
+
+    @media(max-width:980px){
+      .solu-grid{ grid-template-columns:1fr; }
+    }
+
+    .solu-copy .lead{
+      font-size:1.25rem;
+      line-height:1.5;
+    }
+
+checks{ margin:16px 0 0; padding:0; list-style:none; display:grid; gap:8px; } 
+.checks li{ position:relative; padding-left:28px; } 
+.checks li::before{ content:""; position:absolute; left:0; top:.35em; width:18px; height:18px; border-radius:50%; background:linear-gradient(135deg,var(--brand),rgba(253,158,248,.7)); box-shadow:0 0 0 1px rgba(255,255,255,.25) inset; }
+
+
+
+    .solu-illu img{
+      width:520px;
+      max-width:100%;
+      display:block;
+      margin:0 auto;
+      filter: drop-shadow(0 16px 40px rgba(253,158,248,.25));
+    }
+
+    /* Come funziona */
+    .steps{
+      display:grid;
+      gap:24px;
+      grid-template-columns:repeat(3,1fr);
+    }
+
+    @media(max-width:980px){
+      .steps{ grid-template-columns:1fr; }
+    }
+
+    .step-card{
+      border:1px solid var(--ring);
+      background:var(--card);
+      border-radius:24px;
+      padding:24px;
+      backdrop-filter: blur(12px) saturate(140%);
+      transform: translateY(24px) scale(.98);
+      opacity:0;
+      filter:blur(4px);
+      transition:
+        opacity .8s cubic-bezier(.16,1,.3,1),
+        transform .8s cubic-bezier(.16,1,.3,1),
+        filter .8s;
+    }
+
+    .step-card.show{
+      opacity:1;
+      transform:translateY(0) scale(1);
+      filter:blur(0);
+      transition-delay: var(--delay,0ms);
+    }
+
+    .step-illu{
+      display:flex;
+      justify-content:center;
+      margin-bottom:10px;
+    }
+
+    .step-illu img{
+      width:220px;
+      max-width:100%;
+      filter: drop-shadow(0 12px 32px rgba(253,158,248,.25));
+    }
+
+    /* look coerente sugli svg */
+    .illu svg,
+    .solu-illu svg,
+    .step-illu svg{
+      display:block;
+      filter: drop-shadow(0 12px 34px rgba(253,158,248,.22));
+    }
+
+    /* 3 punti – versione clean elegante */
+    #soluzione-intro .checks{
+      margin-top:32px;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+align-self: flex-start;
+  width: 100%;
+    }
+/* Allineamento pulito colonna sinistra in #soluzione-intro */
+#soluzione-intro .solu-copy{
+  max-width: 560px;          /* larghezza fissa per testo + pillole */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;   /* niente centramenti strani */
+}
+
+/* la lista usa tutta la stessa larghezza del testo */
+#soluzione-intro .checks{
+  width: 100%;
+  margin-top: 32px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* le pillole si “stirano” esattamente quanto il testo */
+#soluzione-intro .checks li{
+  align-self: stretch;       /* stessa larghezza della colonna */
+  text-align: left;
+  padding: 18px 26px;        /* puoi ridurre il padding se sembrano ancora troppo larghe */
+}
+
+
+    #soluzione-intro .checks li{
+      list-style:none;
+      border:1px solid rgba(253,158,248,.35);
+      border-radius:18px;
+      padding:18px 26px;
+      background:rgba(255,255,255,.05);
+      backdrop-filter:blur(8px);
+
+      font-size:1.28rem;
+      font-weight:600;
+      line-height:1.4;
+      letter-spacing:-.25px;
+
+      transform:translateY(22px) scale(.98);
+      opacity:0;
+      filter:blur(4px);
+      transition:
+        opacity .7s cubic-bezier(.16,1,.3,1),
+        transform .7s cubic-bezier(.16,1,.3,1),
+        filter .7s cubic-bezier(.16,1,.3,1);
+    }
+
+    #soluzione-intro .checks li.show{
+      opacity:1;
+      transform:translateY(0) scale(1);
+      filter:blur(0);
+      box-shadow:0 0 0 0 rgba(253,158,248,.45);
+      animation:sweshGlowIn .9s ease forwards;
+    }
+
+    #soluzione-intro .checks li:hover{
+      transform:translateY(-3px) scale(1);
+      border-color:rgba(253,158,248,.55);
+    }
+
+    @keyframes sweshGlowIn{
+      0%{ box-shadow:0 0 0px 0 rgba(253,158,248,.0); }
+      100%{ box-shadow:0 0 34px 0 rgba(253,158,248,.23); }
+    }
+
+    #soluzione-intro .checks li.show:hover{
+      box-shadow:0 0 48px 0 rgba(253,158,248,.32);
+      border-color:rgba(253,158,248,.55);
+    }
+
+    /* sparkles */
+    #soluzione-intro .checks li.show::before,
+    #soluzione-intro .checks li.show::after{
+      content:"";
+      position:absolute;
+      width:6px;
+      height:6px;
+      background:rgba(253,158,248,.9);
+      border-radius:50%;
+      pointer-events:none;
+      opacity:0;
+      transform:scale(0.3);
+    }
+
+    #soluzione-intro .checks li.show::before{
+      top:-6px;
+      left:22px;
+      animation: sparkleA .9s ease-out .32s forwards;
+    }
+
+    #soluzione-intro .checks li.show::after{
+      bottom:-6px;
+      right:22px;
+      animation: sparkleB 1s ease-out .42s forwards;
+    }
+
+    @keyframes sparkleA{
+      0%   { opacity:0; transform:scale(.3); }
+      30%  { opacity:1; transform:scale(1.3); }
+      60%  { opacity:1; transform:scale(.9); }
+      100% { opacity:0; transform:scale(.3); }
+    }
+
+    @keyframes sparkleB{
+      0%   { opacity:0; transform:scale(.3); }
+      30%  { opacity:1; transform:scale(1.4); }
+      60%  { opacity:1; transform:scale(.95); }
+      100% { opacity:0; transform:scale(.3); }
+    }
+
+    /* Footer pill */
+    .swesh-footer{
+      background:#000;
+      padding:40px 20px 80px;
+    }
+
+    .swesh-footer-pill{
+      max-width:1100px;
+      margin:0 auto;
+      padding:14px 22px;
+      border-radius:9999px;
+
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(10px);
+
+      text-align:center;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.95rem;
+      line-height: 1.6;
+
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,0.06),
+        0 2px 10px rgba(0,0,0,0.35);
+    }
+
+    .swesh-footer-pill p{ margin:0; }
+
+    @media (max-width: 560px){
+      .swesh-footer{ padding:30px 16px 60px; }
+      .swesh-footer-pill{ padding:12px 18px; font-size:0.9rem; }
+    }
+
+    .panel{
+      border-radius:28px;
+      padding:28px;
+      background:var(--card);
+      border:1px solid var(--ring);
+      backdrop-filter:saturate(140%) blur(10px);
+    }
+
+    .container{
+      max-width:1120px;
+      margin-inline:auto;
+      padding-inline:24px;
+    }
+
+
+
+
+    /* ============================
+       TWEAK RESPONSIVE INDEX
+       ============================ */
+
+    @media (max-width: 768px) {
+      .sw-sec {
+        padding: 96px 0 80px;
+      }
+
+      .sw-wrap {
+        padding: 0 20px;
+      }
+
+      .solu-grid {
+        gap: 32px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .sw-sec {
+        padding: 80px 0 64px;
+      }
+
+      .sw-h2 {
+        font-size: 1.6rem;
+      }
+
+      .sw-h3 {
+        font-size: 1.05rem;
+      }
+
+      .swesh-footer-pill {
+        border-radius: 24px;
+      }
+    }
+
+      
+      
+      /* =========================
+   FAQ ACCORDION
+   ========================= */
+.faq-list{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-top:24px;
+}
+
+.faq-item{
+  border-radius:22px;
+  background:var(--card);
+  border:1px solid var(--ring);
+  backdrop-filter: blur(10px) saturate(140%);
+  overflow:hidden;
+  transition:
+    border-color .25s ease,
+    box-shadow .25s ease,
+    transform .25s ease;
+}
+
+.faq-item:hover{
+  transform:translateY(-2px);
+  border-color:rgba(253,158,248,.45);
+  box-shadow:0 16px 40px rgba(253,158,248,.18);
+}
+
+/* HEADER FAQ (DOMANDA) */
+.faq-question{
+  width:100%;
+  padding:18px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  background:transparent;
+  border:none;
+  outline:none;
+  cursor:pointer;
+  color:var(--text);
+  text-align:left;
+}
+
+.faq-question h3.sw-h3{
+  margin:0;
+  font-size:1.05rem;
+}
+
+/* ICONE + / - */
+.faq-toggle{
+  flex-shrink:0;
+  width:26px;
+  height:26px;
+  border-radius:999px;
+  border:1px solid rgba(253,158,248,.7);
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:
+    transform .25s cubic-bezier(.16,1,.3,1),
+    background .25s ease,
+    box-shadow .25s ease;
+}
+
+.faq-toggle::before,
+.faq-toggle::after{
+  content:"";
+  position:absolute;
+  border-radius:999px;
+  background:rgba(253,158,248,.95);
+  transition:opacity .2s ease, transform .2s ease;
+}
+
+/* linea orizzontale */
+.faq-toggle::before{
+  width:12px;
+  height:2px;
+}
+
+/* linea verticale (per fare il +) */
+.faq-toggle::after{
+  width:2px;
+  height:12px;
+}
+
+/* stato aperto */
+.faq-item.active .faq-toggle{
+  background:rgba(253,158,248,.16);
+  box-shadow:0 0 22px rgba(253,158,248,.45);
+}
+
+/* quando è aperto, la linea verticale sparisce -> diventa "-" */
+.faq-item.active .faq-toggle::after{
+  opacity:0;
+  transform:scale(.3);
+}
+
+/* RISPOSTA (contenuto che si apre) */
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  padding:0 20px;
+  opacity:0;
+  transform:translateY(-4px);
+  transition:
+    max-height .32s cubic-bezier(.16,1,.3,1),
+    opacity .22s ease,
+    transform .22s ease,
+    padding-top .22s ease,
+    padding-bottom .22s ease;
+}
+
+.faq-answer p{
+  margin-top:0;
+  margin-bottom:12px;
+}
+
+/* stato aperto: animazione */
+.faq-item.active .faq-answer{
+  max-height:420px;           /* abbastanza per tutti i paragrafi */
+  opacity:1;
+  transform:translateY(0);
+  padding-bottom:16px;
+}
+
+/* RESPONSIVE FAQ */
+@media (max-width: 768px){
+  .faq-question{
+    padding:16px 16px;
+  }
+
+  .faq-answer{
+    padding:0 16px;
+  }
+
+  .faq-question h3.sw-h3{
+    font-size:0.98rem;
+  }
+}
+
+@media (max-width: 480px){
+  .faq-question{
+    gap:8px;
+  }
+
+  .faq-toggle{
+    width:24px;
+    height:24px;
+  }
+}
+.swesh-highlight{
+  color:#fd9ef8;
+  font-family: "PPGatwick-Bold", sans-serif;
+  font-weight: 800; /* opzionale, puoi toglierlo se il woff2 è already bold */
+  letter-spacing:-0.5px;
+}
+/* Mobile hero */
+@media (max-width: 768px) {
+  .hero {
+    padding: 305px 20px;
+  }
+
+  .hero h1 {
+    font-size: 75px;
+  }
+
+  .hero h2 {
+    font-size: 20px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .cta-button {
+    font-size: 14px;
+    padding: 12px 28px;
+  }
+}
+
+      
+      /* Logo nella navbar */
+.swesh-logo {
+  width: 85px;          /* dimensione perfetta per navbar */
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 0 6px rgba(253,158,248,0.6))
+          drop-shadow(0 0 14px rgba(253,158,248,0.3)); /* glow elegante */
+  transition: transform .2s ease, filter .2s ease;
+}
+
+.navbar .logo a {
+  display: flex;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </style>
+</head>
+
+<body>
+  <!-- Overlay per animazione -->
+  <div class="overlay"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html" id="link-home">
+          <img src="assets/img/stella.png" alt="Swesh Logo" class="swesh-logo">
+</a>
+        
+    </div>
+    <div class="menu" id="menu">
+      <a href="chi-siamo.html" id="link-chi-siamo">Visione</a>
+    </div>
+    <div class="hamburger" id="hamburger">&#9776;</div>
+  </nav>
+
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="overlay-blur"></div>
+    <div class="hero-content">
+      <h1 class="animate-slide-up">swesh</h1>
+      <h2 class="animate-fade delay-1">Scambia Moda , Crea Ricordi</h2>
+      <a href="#problematica" class="cta-button animate-fade delay-2">Scopri l'app</a>
+    </div>
+  </section>
+
+  <!-- PROBLEMATICA -->
+  <section id="problematica" class="sw-sec">
+    <div class="sw-wrap">
+      <div class="sw-eyebrow">
+        Perché nasce <span class="serif" style="color:#fd9ef8">SWESH</span>
+      </div>
+      <h2 class="sw-h2 reveal">Il problema</h2>
+
+      <div class="sw-grid3">
+        <!-- FAST FASHION -->
+        <article class="glass-card reveal" style="--delay:0ms">
+          <div class="illu">
+            <img src="assets/img/1.png" alt="">
+          </div>
+            </br></br></br>
+          <h3 class="sw-h3"><span class="serif">1.</span> FAST FASHION</h3>
+          <ul class="sw-list">
+            <li>Produce troppo, dura poco, finisce in discarica.</li>
+            <li>Inquina il pianeta, spreca risorse preziose.</li>
+            <li>Spreco continuo, valore zero.</li>
+            <li>Consumare così non è più sostenibile.</li>
+          </ul>
+        </article>
+
+        <!-- NESSUN SENSO DI COMUNITÀ -->
+        <article class="glass-card reveal" style="--delay:120ms">
+          <div class="illu">
+            <img src="assets/img/2.png" alt="">
+          </div>
+          <h3 class="sw-h3"><span class="serif">2.</span> NO CONNESSIONI AUTENTICHE</h3>
+          <ul class="sw-list">
+            <li>Non si tratta solo di vestiti.</li>
+            <li>Si tratta di storie, identità, emozioni.</li>
+            <li>La moda può e deve unire.</li>
+          </ul>
+        </article>
+
+        <!-- NO CONNESSIONI AUTENTICHE -->
+        <article class="glass-card reveal" style="--delay:200ms">
+          <div class="illu">
+            <img src="assets/img/3.png" alt="">
+          </div>
+          <h3 class="sw-h3"><span class="serif">3.</span> NESSUN SENSO DI COMUNITÀ</h3>
+          <ul class="sw-list">
+            <li>Le piattaforme esistenti sono statiche e impersonali.</li>
+            <li>Nessuna emozione. Nessun legame. Solo scroll.</li>
+            <li>Dove sono il divertimento, la socialità, lo scambio umano?</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUZIONE -->
+  <section id="soluzione-intro" class="sw-sec">
+    <div class="sw-wrap">
+      <div class="sw-eyebrow">La soluzione</div>
+      <h2 class="sw-h2 reveal">
+        <span class="serif">Cos’è</span>
+        <span class="swesh-highlight">swesh</span>
+      </h2>
+
+      <div class="solu-grid">
+        <div class="solu-copy reveal" style="--delay:0ms">
+          <p class="lead">
+            L'app che rivoluziona il concetto di <span class="serif">moda circolare</span>.<br>
+            Unisce <strong>sostenibilità</strong>, <strong>socializzazione</strong> e <strong>divertimento</strong>, trasformando lo
+            scambio di vestiti in <span class="serif">un'esperienza memorabile</span>.
+          </p>
+          <ul class="checks">
+            <li>Trovare un capo nuovo</li>
+            <li>Connettersi con persone reali</li>
+            <li>Scambiare storie, non solo vestiti</li>
+          </ul>
+        </div>
+
+        <div class="solu-illu reveal" style="--delay:160ms">
+          <img src="assets/img/cell.png" style="width:400px; height:auto;" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COME FUNZIONA -->
+  <section id="come-funziona" class="sw-sec">
+    <div class="sw-wrap">
+      <div class="sw-eyebrow">Come funziona</div>
+      <h2 class="sw-h2 reveal">3 passi, zero frizione</h2>
+
+      <div class="steps">
+        <!-- STEP 1 -->
+        <article class="step-card reveal" style="--delay:0ms">
+          <div class="step-illu">
+            <img src="assets/img/4.png" alt="">
+          </div>
+          <h3 class="sw-h3">TROVA LO <span class="serif">SWESH</span> PERFETTO</h3>
+          <p class="muted">Scopri capi con vibe affini al tuo stile grazie a filtri e tag emozionali.</p>
+        </article>
+
+        <!-- STEP 2 -->
+        <article class="step-card reveal" style="--delay:120ms">
+          <div class="step-illu">
+            <img src="assets/img/5.png" alt="">
+          </div>
+          <h3 class="sw-h3">PREPARATI A <span class="serif">SCAMBIARE</span></h3>
+          <p class="muted">Chat, meet & swap: tutto semplice, sicuro e divertente.</p>
+        </article>
+
+        <!-- STEP 3 -->
+        <article class="step-card reveal" style="--delay:220ms">
+          <div class="step-illu">
+            <img src="assets/img/6.png" alt="">
+          </div>
+          <h3 class="sw-h3">PERSONALIZZA IL TUO <span class="serif">PROFILO</span></h3>
+          <p class="muted">Mostra vibe, storie e memoria dei capi: il tuo stile, le tue regole.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTIFY SECTION -->
+  <section class="notify-section">
+    <div class="notify-content">
+      <h2>Scopri Quando Lanciamo</h2>
+      <p>Stile autentico, idee nuove, vibrazioni positive.</p>
+
+<form class="notify-form" id="sweshForm" 
+      action="https://a62d4201.sibforms.com/serve/MUIFAHo6t-dHcN2vwrN5tAZaH5WVimq6lkvCrJnXqezFGhleOqMKlopQIkaf8Iw25sf4OLN6PJOSxsJX8qHdDvKp-8v1B36GLAugG5DRiUzvBGB2bXwDgd6-mL3mvAloOO4GqvkDfxePFJQX2WanFZEI3z24u6d0WIfLvUbKJds4tDH84o2ZdsnVkA-PQTaJs8jaerT9NHBRVX_EVg==" 
+      method="POST">
+
+  <!-- Hidden richiesti da Brevo -->
+  <input type="hidden" name="email_address_check" value="">
+  <input type="hidden" name="locale" value="it">
+  <input type="hidden" name="html_type" value="simple">
+
+  <!-- IL TUO unico campo email -->
+  <input type="email"
+         id="emailInput"
+         name="EMAIL"
+         placeholder="Inserisci la tua email"
+         required>
+
+  <button type="submit">ENTRA NELLA COMMUNITY</button>
+</form>
+
+
+
+
+
+
+
+
+    </div>
+
+    <div class="notify-image">
+      <img src="assets/img/razz.png" width="300" height="300" loading="lazy" alt="">
+    </div>
+  </section>
+
+
+
+
+<!-- FAQ SECTION -->
+<section id="faq" class="sw-sec">
+  <div class="sw-wrap">
+    <div class="sw-eyebrow">Domande frequenti</div>
+    <h2 class="sw-h2">
+  FAQ su <span class="swesh-highlight">swesh</span>
+</h2>
+
+    <div class="faq-list">
+
+      <!-- FAQ 1 -->
+      <article class="faq-item">
+        <button class="faq-question" type="button">
+          <h3 class="sw-h3">Che cos’è esattamente SWESH?</h3>
+          <span class="faq-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <p class="muted">
+            SWESH è un’app di <strong>scambio vestiti</strong> pensata per chi ama la moda
+            ma vuole viverla in modo più <strong>sostenibile, sociale e divertente</strong>.
+            Non è solo un posto dove trovare capi nuovi per te, ma una community dove circolano
+            <strong>storie, ricordi e vibrazioni positive</strong>.
+          </p>
+        </div>
+      </article>
+
+      <!-- FAQ 2 -->
+      <article class="faq-item">
+        <button class="faq-question" type="button">
+          <h3 class="sw-h3">SWESH è un negozio online o uno scambio tra persone?</h3>
+          <span class="faq-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <p class="muted">
+            SWESH nasce per mettere al centro le <strong>persone</strong>.
+            L’idea è quella di favorire lo <strong>scambio di vestiti tra utenti reali</strong>,
+            creando connessioni autentiche e non solo transazioni anonime.
+          </p>
+        </div>
+      </article>
+
+      
+
+      
+
+      
+     
+
+      
+
+      <!-- FAQ 8 -->
+      <article class="faq-item">
+        <button class="faq-question" type="button">
+          <h3 class="sw-h3">Quando lancerete l’app?</h3>
+          <span class="faq-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <p class="muted">
+            Siamo in fase di <strong>pre-lancio</strong>.
+            Se lasci la tua email nella sezione “Scopri Quando Lanciamo”,
+            sarai tra i primi a sapere quando SWESH sarà disponibile
+            e potrai entrare nella community dalle prime fasi.
+          </p>
+        </div>
+      </article>
+
+      <!-- FAQ 9 -->
+      <article class="faq-item">
+        <button class="faq-question" type="button">
+          <h3 class="sw-h3">Cosa succede se lascio la mia email?</h3>
+          <span class="faq-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <p class="muted">
+            Ti avviseremo sul <strong>lancio dell’app</strong>, sulle novità della community
+            e su contenuti legati a <strong>stile autentico, idee nuove e vibrazioni positive</strong>.
+            Preferiamo mandarti solo aggiornamenti che abbiano senso per te.
+          </p>
+        </div>
+      </article>
+
+      <!-- FAQ 10 -->
+      <article class="faq-item">
+        <button class="faq-question" type="button">
+          <h3 class="sw-h3">Posso cancellare la mia iscrizione?</h3>
+          <span class="faq-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <p class="muted">
+            Sì, puoi <strong>disiscriverti</strong> in qualsiasi momento dai nostri aggiornamenti
+            e chiedere la gestione dei tuoi dati come indicato nella
+            <a href="privacy.html" style="font-size:1.2rem">Privacy Policy</a>.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+  <!-- FOOTER -->
+  <section class="container" style="padding-bottom:100px;">
+    <div class="panel center muted" style="font-size:.9rem;">
+      © <span id="year"></span> SWESH — Moda, Community, Memoria<br>
+      <a href="privacy.html" style="font-size:1.2rem">Privacy Policy</a>
+      <span>•</span>
+      <a href="cookies.html" style="font-size:1.2rem">Cookie Policy</a>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+  <!-- COOKIE BANNER -->
+  <div id="cookie-banner" class="cookie-banner">
+    <p class="cookie-text">
+      Questo sito usa cookie tecnici e analitici per migliorare la tua esperienza.
+    </p>
+
+    <div class="cookie-btns">
+      <button id="btn-accept" class="cookie-btn accept">Accetto</button>
+      <button id="btn-reject" class="cookie-btn reject">Rifiuto</button>
+      <a href="/cookies.html" class="cookie-link">Cookie Policy</a>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+
+    // Observer per cards / titoli
+    (function(){
+      const revealables = document.querySelectorAll(
+        '#problematica .glass-card,' +
+        '#soluzione-intro .reveal,' +
+        '#come-funziona .step-card,' +
+        '#problematica .sw-h2,' +
+        '#soluzione-intro .sw-h2,' +
+        '#come-funziona .sw-h2'
+      );
+      if(!revealables.length) return;
+
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){
+            e.target.classList.add('show');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      revealables.forEach(el=> io.observe(el));
+    })();
+
+    // Reveal per i 3 punti della SOLUZIONE
+    // Reveal per i 3 punti della SOLUZIONE (quando la sezione entra in viewport)
+(function(){
+  const section = document.querySelector('#soluzione-intro');
+  const items = document.querySelectorAll('#soluzione-intro .checks li');
+  if (!section || !items.length) return;
+
+  // delay a cascata sui 3 punti
+  items.forEach((li, i) => {
+    li.style.setProperty('--delay', `${i * 120}ms`);
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        // quando la sezione entra in viewport, faccio partire l’animazione dei 3 li
+        items.forEach(li => li.classList.add('show'));
+        io.unobserve(e.target); // solo la prima volta
+      }
+    });
+  }, { threshold: 0.3 });
+
+  io.observe(section);
+})();
+
+    // Anno nel footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Cookie banner
+    function setCookie(name,value,days) {
+      const d = new Date();
+      d.setTime(d.getTime()+(days*24*60*60*1000));
+      document.cookie = `${name}=${value};expires=${d.toUTCString()};path=/`;
+    }
+
+    function getCookie(name) {
+      return document.cookie.split('; ').find(row => row.startsWith(name+'='))?.split('=')[1];
+    }
+
+    function loadNonEssential(){
+      const s = document.createElement("script");
+      s.src = "https://www.googletagmanager.com/gtag/js?id=G-RMVVZB0HWL";
+      s.async = true;
+      document.head.appendChild(s);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-RMVVZB0HWL');
+    }
+
+    if (getCookie('consent') === 'true') {
+      document.getElementById('cookie-banner').classList.add('hidden');
+      loadNonEssential();
+    }
+
+    document.getElementById('btn-accept').onclick = () => {
+      setCookie('consent','true',365);
+      document.getElementById('cookie-banner').classList.add('hidden');
+      loadNonEssential();
+    };
+
+    document.getElementById('btn-reject').onclick = () => {
+      setCookie('consent','false',365);
+      document.getElementById('cookie-banner').classList.add('hidden');
+    };
+  </script>
+
+<script>
+  // FAQ accordion
+  (function(){
+    const items = document.querySelectorAll('.faq-item');
+    if(!items.length) return;
+
+    items.forEach(item => {
+      const btn = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+
+      if (!btn || !answer) return;
+
+      // stato iniziale: tutte chiuse
+      answer.style.maxHeight = '0px';
+
+      btn.addEventListener('click', () => {
+        const isOpen = item.classList.contains('active');
+
+        // chiudi tutte
+        items.forEach(i => {
+          i.classList.remove('active');
+          const a = i.querySelector('.faq-answer');
+          if(a){
+            a.style.maxHeight = '0px';
+          }
+          const b = i.querySelector('.faq-question');
+          if(b){
+            b.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        // se quella cliccata era chiusa, aprila
+        if(!isOpen){
+          item.classList.add('active');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+          btn.setAttribute('aria-expanded', 'true');
+        } else {
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // accessibilità di base
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-controls', 'faq-' + Math.random().toString(36).slice(2,8));
+    });
+  })();
+</script>
+
+
+
+
+
+
+  <!-- JS tuo (navbar, overlay, ecc.) -->
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

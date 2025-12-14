@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <title>404 – Swesh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root{
+      --pink:#fd9ef8;
+      --white:#fff;
+      --black:#000;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    body{
+      background:var(--black);
+      color:var(--white);
+      font-family:'PPGatwick-Bold', Arial, sans-serif;
+      text-align:center;
+      min-height:100vh;
+      padding:20px;
+    }
+
+    /* CONTENITORE CENTRATO */
+    .error-page{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      gap:15px;
+    }
+
+    h1{
+      font-size:clamp(60px,12vw,140px);
+      color:var(--pink);
+      margin-bottom:8px;
+      line-height:1;
+    }
+
+    p{
+      font-size:clamp(16px,2vw,22px);
+      opacity:.85;
+      line-height:1.6;
+    }
+
+    .art{
+      margin:16px 0 8px;
+    }
+
+    .art img{
+      width:100%;
+      max-width:250px;   /* regola qui la dimensione massima della TV */
+      height:auto;
+      display:block;
+      margin:0 auto;
+    }
+
+    .btn{
+      padding:12px 24px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.25);
+      background:rgba(255,255,255,.08);
+      backdrop-filter:blur(14px);
+      font-size:15px;
+      text-decoration:none;
+      color:var(--white);
+      transition:all .2s ease;
+      font-family: Arial, sans-serif;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px) scale(1.03);
+      color:var(--black);
+      background:var(--pink);
+      border-color:var(--pink);
+    }
+  </style>
+
+  <link rel="canonical" href="https://swesh.free.nf/404.html">
+</head>
+
+<body>
+  <div class="error-page">
+    <h1>404</h1>
+
+    <p>
+      La pagina che cerchi non esiste più.<br>
+      oppure non è mai esistita.
+    </p>
+
+    <div class="art">
+      <img src="../assets/img/tv.png" alt="Schermata di errore 404">
+    </div>
+
+    <a class="btn" href="/index.html">Torna alla Home</a>
+  </div>
+</body>
+</html>

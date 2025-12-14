@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" type="image/png" href="assets/img/swesh.png"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grazie!</title>
+
+  <style>
+    /* 1) Carica il font custom */
+    @font-face {
+      font-family: 'PPGatwick-Bold';
+      src: url('assets/fonts/PPGatwick-Bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* 2) Reset minimale + colori */
+    :root{
+      --pink:#fd9ef8;
+      --white:#fff;
+      --black:#000;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      background:var(--black);
+      color:var(--white);
+      font-family:'PPGatwick-Bold',Arial,sans-serif;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      height:100vh;
+      padding:20px;
+    }
+
+    /* 3) Contenitore centrale */
+    .wrap {
+      width: min(92vw, 1000px);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(16px, 3vw, 32px);
+      padding: clamp(16px, 4vw, 48px);
+    }
+
+    /* 4) Titolo responsive con il tuo font */
+    h1 {
+      margin: 0;
+      font-family: 'PPGatwick-Bold', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 700;
+      line-height: 0.90;
+      letter-spacing: 0.1px;
+      font-size: clamp(28px, 8vw, 96px); /* responsive */
+      color: var(--pink);
+      text-wrap: balance;
+    }
+
+    /* 5) Sottotitolo (facoltativo) */
+    p.sub {
+      margin: 0;
+      opacity: 0.85;
+      font-size: clamp(14px, 2.5vw, 20px);
+    }
+
+    /* 6) SVG responsive */
+    .art {
+      width: min(80vw, 520px);  /* scala su viewport ma con max */
+      aspect-ratio: 1.6 / 1;    /* tieni forma coerente */
+      display: grid;
+      place-items: center;
+    }
+    .art svg,
+    .art img {
+      width: 90%;
+      height: 90%;
+    }
+
+    /* 7) Pulsante ritorno (opzionale) */
+    .btn{
+      padding:12px 20px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.25);
+      background:rgba(255,255,255,.08);
+      backdrop-filter:blur(14px);
+      font-size:15px;
+      text-decoration:none;
+      color:var(--white);
+      transition:all .2s ease;
+    font-family: Arial;
+    }
+    .btn:hover{
+      transform:translateY(-2px) scale(1.03);
+      color:var(--black);
+      background:var(--pink);
+      border-color:var(--pink);
+    }
+    /* Accessibilità: meno motion se l’utente lo chiede */
+    @media (prefers-reduced-motion: reduce) {
+      .btn { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap" role="main">
+    <h1>Ora fai parte della rivoluzione!</h1>
+    <p class="sub">Ti avviseremo quando ci saranno novità.</p>
+
+    <!-- 8) ARTE: SVG sotto la scritta -->
+    <!-- Opzione A: inline SVG (modifica come vuoi i path/forme) -->
+    <div class="art">
+  <img src="assets/img/mani.png" alt="illustrazione" />
+</div>
+
+    <!-- Opzione B alternativa: se hai un tuo file SVG -->
+    <!-- <div class="art"><img src="assets/img/tuo-disegno.svg" alt="" /></div> -->
+
+    <a class="btn" href="index.html">Torna alla home</a>
+  </main>
+</body>
+</html>
