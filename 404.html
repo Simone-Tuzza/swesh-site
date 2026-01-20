@@ -1,105 +1,169 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8">
-  <title>404 – Swesh</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Segnale Perso | Swesh</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --pink:#fd9ef8;
-      --white:#fff;
-      --black:#000;
-    }
+    <style>
+        :root {
+            --swesh-pink: #fd9ef8;
+            --swesh-bg: #000000;
+            --swesh-text: #ffffff;
+            --mono-font: 'JetBrains Mono', monospace;
+            --main-font: 'Inter', sans-serif;
+        }
 
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body{
-      background:var(--black);
-      color:var(--white);
-      font-family:'PPGatwick-Bold', Arial, sans-serif;
-      text-align:center;
-      min-height:100vh;
-      padding:20px;
-    }
+        body {
+            background-color: var(--swesh-bg);
+            color: var(--swesh-text);
+            font-family: var(--main-font);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow: hidden; /* Evita scrollbar se l'effetto bagliore sfora */
+        }
 
-    /* CONTENITORE CENTRATO */
-    .error-page{
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      gap:15px;
-    }
+        .error-container {
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
 
-    h1{
-      font-size:clamp(60px,12vw,140px);
-      color:var(--pink);
-      margin-bottom:8px;
-      line-height:1;
-    }
+        /* --- IL CUORE: LA TV CON IL BAGLIORE --- */
+        .tv-wrapper {
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
 
-    p{
-      font-size:clamp(16px,2vw,22px);
-      opacity:.85;
-      line-height:1.6;
-    }
+        /* L'immagine della TV */
+        .tv-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            /* Un leggero movimento fluttuante */
+            animation: float 6s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+        }
 
-    .art{
-      margin:16px 0 8px;
-    }
+        /* L'effetto bagliore pulsante dietro la TV */
+        .tv-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background: var(--swesh-pink);
+            filter: blur(80px);
+            opacity: 0.4;
+            z-index: 1;
+            animation: pulseGlow 4s ease-in-out infinite alternate;
+        }
 
-    .art img{
-      width:100%;
-      max-width:250px;   /* regola qui la dimensione massima della TV */
-      height:auto;
-      display:block;
-      margin:0 auto;
-    }
+        /* --- TYPOGRAPHY --- */
+        .headline-404 {
+            font-family: var(--mono-font);
+            font-size: clamp(4rem, 10vw, 6rem); /* Gigante e responsive */
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 10px;
+            color: var(--swesh-pink);
+            text-shadow: 0 0 20px rgba(253, 158, 248, 0.5);
+        }
 
-    .btn{
-      padding:12px 24px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.25);
-      background:rgba(255,255,255,.08);
-      backdrop-filter:blur(14px);
-      font-size:15px;
-      text-decoration:none;
-      color:var(--white);
-      transition:all .2s ease;
-      font-family: Arial, sans-serif;
-    }
+        .error-title {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
 
-    .btn:hover{
-      transform:translateY(-2px) scale(1.03);
-      color:var(--black);
-      background:var(--pink);
-      border-color:var(--pink);
-    }
-  </style>
+        .error-desc {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-  <link rel="canonical" href="https://swesh.free.nf/404.html">
+        /* --- IL BOTTONE SWESH --- */
+        .swesh-btn {
+            display: inline-block;
+            background-color: var(--swesh-pink);
+            color: #000;
+            font-weight: 800;
+            text-decoration: none;
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(253, 158, 248, 0.3);
+        }
+
+        .swesh-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(253, 158, 248, 0.5);
+            background-color: #ffb6fc;
+        }
+
+        /* --- ANIMAZIONI --- */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes pulseGlow {
+            0% { opacity: 0.3; filter: blur(80px); scale: 1; }
+            100% { opacity: 0.6; filter: blur(100px); scale: 1.1; }
+        }
+
+        /* Responsive per schermi piccoli */
+        @media (max-width: 600px) {
+            .tv-image {
+                max-width: 280px; /* TV più piccola su mobile */
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <div class="error-page">
-    <h1>404</h1>
 
-    <p>
-      La pagina che cerchi non esiste più.<br>
-      oppure non è mai esistita.
-    </p>
+    <main class="error-container">
+        
+        <div class="tv-wrapper">
+            <img src="assets/img/tv.png" alt="TV 3D senza segnale" class="tv-image" width="200" height="200">
+        </div>
 
-    <div class="art">
-      <img src="../assets/img/tv.png" alt="Schermata di errore 404">
-    </div>
+        <h1 class="headline-404">404</h1>
+        <h2 class="error-title">Questa vibe non esiste.</h2>
+        
+        <p class="error-desc">
+            Segnale perso. Sei finito su un canale morto. <br>
+            Sintonizzati di nuovo dove c'è l'azione.
+        </p>
 
-    <a class="btn" href="/index.html">Torna alla Home</a>
-  </div>
+        <a href="index.html" class="swesh-btn">
+            Torna alla Home
+        </a>
+
+    </main>
+
 </body>
 </html>

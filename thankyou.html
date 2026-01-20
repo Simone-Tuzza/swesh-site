@@ -1,125 +1,228 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8" />
-  <link rel="shortcut icon" type="image/png" href="assets/img/swesh.png"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Grazie!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swesh ID - Activation</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
-  <style>
-    /* 1) Carica il font custom */
-    @font-face {
-      font-family: 'PPGatwick-Bold';
-      src: url('assets/fonts/PPGatwick-Bold.woff2') format('woff2');
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
-    }
+    <style>
+        :root {
+            --brand: #fd9ef8;
+            --bg: #000000;
+            --glass: rgba(255, 255, 255, 0.1);
+            --border: rgba(255, 255, 255, 0.2);
+            --mono: 'JetBrains Mono', monospace;
+        }
 
-    /* 2) Reset minimale + colori */
-    :root{
-      --pink:#fd9ef8;
-      --white:#fff;
-      --black:#000;
-    }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body{
-      background:var(--black);
-      color:var(--white);
-      font-family:'PPGatwick-Bold',Arial,sans-serif;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      height:100vh;
-      padding:20px;
-    }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* 3) Contenitore centrale */
-    .wrap {
-      width: min(92vw, 1000px);
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: clamp(16px, 3vw, 32px);
-      padding: clamp(16px, 4vw, 48px);
-    }
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
 
-    /* 4) Titolo responsive con il tuo font */
-    h1 {
-      margin: 0;
-      font-family: 'PPGatwick-Bold', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      font-weight: 700;
-      line-height: 0.90;
-      letter-spacing: 0.1px;
-      font-size: clamp(28px, 8vw, 96px); /* responsive */
-      color: var(--pink);
-      text-wrap: balance;
-    }
+        .container {
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
 
-    /* 5) Sottotitolo (facoltativo) */
-    p.sub {
-      margin: 0;
-      opacity: 0.85;
-      font-size: clamp(14px, 2.5vw, 20px);
-    }
+        /* TESTI */
+        h1 { font-size: 2rem; font-weight: 800; margin-bottom: 10px; line-height: 1.1; }
+        p.subtitle { color: rgba(255,255,255,0.6); margin-bottom: 40px; font-size: 1rem; line-height: 1.5; }
 
-    /* 6) SVG responsive */
-    .art {
-      width: min(80vw, 520px);  /* scala su viewport ma con max */
-      aspect-ratio: 1.6 / 1;    /* tieni forma coerente */
-      display: grid;
-      place-items: center;
-    }
-    .art svg,
-    .art img {
-      width: 90%;
-      height: 90%;
-    }
+        /* --- LA CARD SWESH ID --- */
+        .id-card-wrapper {
+            perspective: 1000px;
+            margin-bottom: 40px;
+            display: flex; justify-content: center;
+        }
 
-    /* 7) Pulsante ritorno (opzionale) */
-    .btn{
-      padding:12px 20px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.25);
-      background:rgba(255,255,255,.08);
-      backdrop-filter:blur(14px);
-      font-size:15px;
-      text-decoration:none;
-      color:var(--white);
-      transition:all .2s ease;
-    font-family: Arial;
-    }
-    .btn:hover{
-      transform:translateY(-2px) scale(1.03);
-      color:var(--black);
-      background:var(--pink);
-      border-color:var(--pink);
-    }
-    /* Accessibilità: meno motion se l’utente lo chiede */
-    @media (prefers-reduced-motion: reduce) {
-      .btn { transition: none; }
-    }
-  </style>
+        .swesh-id-card {
+            width: 320px;
+            height: 480px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 24px;
+            position: relative;
+            padding: 25px;
+            text-align: left;
+            box-shadow: 0 0 50px rgba(253, 158, 248, 0.15);
+            backdrop-filter: blur(20px);
+            overflow: hidden;
+            transition: transform 0.5s;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Effetto Olografico */
+        .swesh-id-card::before {
+            content: ''; position: absolute; top:0; left:0; width:100%; height:100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+');
+            opacity: 0.3; z-index: -1;
+        }
+
+        /* Elementi della Card */
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+        .card-logo { font-weight: 800; font-size: 1.2rem; letter-spacing: -1px; }
+        .card-chip { width: 40px; height: 30px; background: linear-gradient(45deg, #d4af37, #f9f295); border-radius: 6px; opacity: 0.8; }
+
+        .member-photo {
+            width: 100px; height: 100px;
+            background: #222; border-radius: 50%;
+            margin: 0 auto 30px auto;
+            border: 2px solid var(--brand);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; color: #555;
+        }
+
+        .member-info { margin-bottom: 30px; }
+        .info-label { font-size: 0.65rem; text-transform: uppercase; color: rgba(255,255,255,0.5); letter-spacing: 1px; margin-bottom: 2px; }
+        .info-value { font-family: var(--mono); font-size: 1.1rem; color: #fff; margin-bottom: 15px; }
+
+        .status-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: rgba(0,0,0,0.3);
+        }
+        .blinking-dot { display:inline-block; width:8px; height:8px; background:red; border-radius:50%; margin-right:6px; animation: blink 1s infinite; }
+
+        /* --- ISTRUZIONI & BADGE FOUNDING MEMBER --- */
+        .action-box {
+            background: rgba(20,20,20,0.8);
+            border: 1px dashed var(--brand);
+            border-radius: 16px;
+            padding: 25px 20px;
+            margin-top: -20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .step-text { font-size: 1rem; margin-bottom: 5px; line-height: 1.4; }
+        
+        /* STILE SPECIALE PER IL BADGE FOUNDING MEMBER */
+        .founding-badge-shine {
+            display: inline-block;
+            background: linear-gradient(90deg, #FFD700, #fd9ef8, #FFD700);
+            background-size: 200% auto;
+            color: #000;
+            font-weight: 900;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin: 15px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 20px rgba(253, 158, 248, 0.5);
+            animation: shine 3s linear infinite;
+        }
+
+        .highlight { color: var(--brand); font-weight: 700; text-decoration: underline; }
+        
+        .insta-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: #fff; color: #000;
+            padding: 12px 24px; border-radius: 50px;
+            font-weight: 700; text-decoration: none;
+            transition: 0.3s;
+            margin-top: 15px;
+        }
+        .insta-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(255,255,255,0.3); }
+
+        @keyframes float { 0% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-15px) rotate(1deg); } 100% { transform: translateY(0px) rotate(0deg); } }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+        @keyframes shine { to { background-position: 200% center; } }
+    </style>
 </head>
 <body>
-  <main class="wrap" role="main">
-    <h1>Grazie per esserti iscritto!</h1>
-    <p class="sub">Ti avviseremo quando ci saranno novità.</p>
 
-    <!-- 8) ARTE: SVG sotto la scritta -->
-    <!-- Opzione A: inline SVG (modifica come vuoi i path/forme) -->
-    <div class="art">
-  <img src="assets/img/cc.png" alt="illustrazione" />
-</div>
+    <div class="container">
+        
+        <h1>Sei dentro. <br><span style="color:#555">Ma sei ancora in fondo alla fila.</span></h1>
+        <p class="subtitle">
+            Swesh è una community curata. Non accettiamo profili vuoti o bot.
+            Per attivare il tuo account, devi passare il <strong>Vibe Check</strong>.
+        </p>
 
-    <!-- Opzione B alternativa: se hai un tuo file SVG -->
-    <!-- <div class="art"><img src="assets/img/tuo-disegno.svg" alt="" /></div> -->
+        <div class="id-card-wrapper">
+            <div class="swesh-id-card" id="sweshCard">
+                
+                <div class="card-header">
+                    <div class="card-logo">swesh<span style="color:var(--brand)">.id</span></div>
+                    <div class="card-chip"></div>
+                </div>
 
-    <a class="btn" href="index.html">Torna alla home</a>
-  </main>
+                <div class="member-photo">
+                    <i class="fa-solid fa-user-astronaut"></i>
+                </div>
+
+                <div class="member-info">
+                    <div class="info-label">Member ID</div>
+                    <div class="info-value" id="randomID">Wait...</div>
+
+                    <div class="info-label">Role</div>
+                    <div class="info-value">Early Adopter</div>
+
+                    <div class="info-label">Access Level</div>
+                    <div class="status-badge">
+                        <span class="blinking-dot"></span> PENDING REVIEW
+                    </div>
+                </div>
+
+                <div style="position:absolute; bottom:25px; right:25px; opacity:0.8; font-size:2.5rem; font-weight:900; letter-spacing:-2px; color:#fff;">
+                    swesh
+                </div>
+
+            </div>
+        </div>
+
+        <div class="action-box">
+            <p class="step-text">
+                Vuoi saltare la coda e attivare il badge
+            </p>
+            
+            <div class="founding-badge-shine">
+                 FOUNDING MEMBER
+            </div>
+
+            <p class="step-text" style="font-size: 0.95rem; opacity: 0.9;">
+                Fai uno <strong>screenshot</strong> della tua card e mettilo nelle storie taggando <span class="highlight">@swesh.it</span>.
+            </p>
+
+            <a href="https://instagram.com/swesh.it" target="_blank" class="insta-btn">
+                <i class="fa-brands fa-instagram"></i> Vai su Instagram
+            </a>
+        </div>
+        
+        <p style="margin-top: 30px; font-size: 0.8rem; color: #444;">
+            Verifichiamo i tag manualmente ogni 24h.
+        </p>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const randomNum = Math.floor(10000 + Math.random() * 90000);
+            document.getElementById("randomID").innerText = "SW-" + randomNum;
+        });
+    </script>
+
 </body>
 </html>
