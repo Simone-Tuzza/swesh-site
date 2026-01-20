@@ -2,17 +2,11 @@
    FONT
 --------------------------------------------------- */
 @font-face {
-  font-family: 'PPGatwick-Bold';
-  src: url('../fonts/PPGatwick-Bold.woff2') format('woff2'),
-       url('../fonts/PPGatwick-Bold.otf') format('truetype');
+  font-family: 'Panchang-Bold';
+  src: url('../fonts/Panchang-Bold.otf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-}
-
-@font-face {
-  font-family: 'Intro';
-  src: url('../fonts/Intro.otf') format('truetype');
 }
 
 @font-face {
@@ -125,7 +119,7 @@ a {
 .logo {
   font-size: 30px;
   font-weight: bold;
-  font-family: 'PPGatwick-Bold';
+  font-family: 'Panchang-Bold';
 }
 
 .logo a {
@@ -143,7 +137,7 @@ a {
   color: #fff;
   text-decoration: none;
   font-size: 18px;
-  font-family: 'PPGatwick-Bold';
+  font-family: 'Panchang-Bold';
   opacity: .9;
 }
 
@@ -211,14 +205,14 @@ a {
   font-weight: 100;
   margin-bottom: 10px;
   color: #fd9ef8;
-  font-family: 'PPGatwick-Bold';
+  font-family: 'Panchang-Bold';
 }
 
 .hero h2 {
   font-size: 24px;
   margin-bottom: 30px;
   color: #fff;
-  font-family: 'PPGatwick-Bold';
+  font-family: 'Panchang-Bold';
 }
 
 .hero p {
@@ -363,12 +357,7 @@ a {
 --------------------------------------------------- */
 
 .gradient-wrapper {
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 1) 10%,
-    rgba(253, 158, 248, 1) 9%,
-    rgba(0, 0, 0, 1) 90%
-  );
+background: rgba(255,255,255,0.02);
   padding: 60px 0;
 }
 
@@ -561,7 +550,7 @@ section.ciao {
 --------------------------------------------------- */
 
 #sw {
-  font-family: 'PPGatwick-Bold';
+  font-family: 'Panchang-Bold';
   color: #fd9ef8;
 }
 
@@ -580,7 +569,7 @@ section.ciao {
 
 .x {
   color: #fd9ef8;
-  font-family: 'Intro';
+  font-family: '';
   font-size: 25rem;
   font-weight: bold;
 }
@@ -750,7 +739,7 @@ section.ciao {
   -webkit-text-stroke: 2px black;
   letter-spacing: 0.5em;
   display: inline-block;
-  font-family: 'PPGatwick-Bold';
+  font-family: 'Panchang-Bold';
 }
 
 .footer-container {
@@ -758,7 +747,7 @@ section.ciao {
 }
 
 .copyright {
-  font-family: 'PPGatwick-Bold';
+  font-family: 'Panchang-Bold';
 }
 
 @media (max-width: 768px) {
@@ -777,7 +766,7 @@ section.ciao {
   padding: 40px 0;
   font-size: 14px;
   color: #000;
-  font-family: 'PPGatwick-Bold', Arial, sans-serif;
+  font-family: 'Panchang-Bold';
 }
 
 .swesh-footer a {
@@ -1147,7 +1136,7 @@ section.ciao {
   gap: 12px;
   color: #fd9ef8;
   text-transform: uppercase;
-  font-family: 'PPGatwick-Bold';
+  font-family: 'Panchang-Bold';
 }
 
 .soluzione-content {
@@ -1228,7 +1217,7 @@ section.ciao {
 }
 
 .titolo {
-  font-family: 'PPGatwick-Bold';
+  font-family: 'Panchang-Bold';
 }
 
 .no-bg {
@@ -1316,94 +1305,7 @@ section.ciao {
    NOTIFY SECTION
 --------------------------------------------------- */
 
-.notify-section {
-  background: linear-gradient(to top, #f0dcca 0%, #fd9ef8 100%);
-  color: #000;
-  padding: 5rem 2rem;
-  border-radius: 30px;
-  max-width: 800px;
-  margin: 4rem auto;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
-  font-family: 'Poppins', sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  text-align: left;
-}
-.notify-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  font-weight: 700;
-  font-family: 'Intro';
-}
 
-.notify-section p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  color: #333;
-}
-
-.notify-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.notify-form input {
-  padding: 1rem 1.2rem;
-  border: none;
-  border-radius: 12px;
-  font-size: 1rem;
-  background: rgba(255, 255, 255, 0.08);
-  color: white;
-  outline: none;
-}
-
-.notify-form input::placeholder {
-  color: #111;
-}
-
-.notify-form button {
-  background: #fff;
-  color: #000;
-  padding: 1rem 1.5rem;
-  font-weight: bold;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 0.3s ease;
-  font-family: 'Intro';
-}
-
-.notify-form button:hover {
-  background: #f0f0f0;
-}
-
-.notify-content {
-  flex: 1;
-}
-
-.notify-image {
-  flex: 0 0 160px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@media (max-width: 767px) {
-  .notify-section {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .notify-image {
-    margin-top: 2rem;
-    flex: none;
-  }
-}
 
 /* ---------------------------------------------------
    COOKIE BANNER
