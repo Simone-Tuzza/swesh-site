@@ -1,7 +1,7 @@
  <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta name="description" content="Swesh è la piattaforma gratuita per scambiare stile tra privati a Torino. Dai vita al tuo archivio: trova pezzi unici e condividi vibes con la community." />
+    <meta name="description" content="Swesh è la piattaforma gratuita per lo scambio di vestiti tra privati. Dai nuova vita ai tuoi abiti usati: trova, proponi e condividi capi con altri utenti." />
     <meta name="robots" content="index, follow">
   <meta charset="UTF-8" />
   <link rel="shortcut icon" type="image/png" href="assets/img/swesh.png" />
@@ -26,16 +26,1515 @@
   <link rel="canonical" href="https://swesh.it/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://swesh.it/">
-  <meta property="og:title" content="SWESH – Cio che sei continua.">
-  <meta property="og:description" content="La piattaforma per scambiare stile in modo smart.">
+  <meta property="og:title" content="SWESH – Scambia Moda, Crea Ricordi.">
+  <meta property="og:description" content="La piattaforma per scambiare moda in modo smart.">
   <meta property="og:image" content="https://swesh.it/swesh-og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="SWESH – Cio che sei  continua.">
-  <meta name="twitter:description" content="La piattaforma per scambiare stile in modo smart.">
+  <meta name="twitter:title" content="SWESH – Scambia Moda, Crea Ricordi.">
+  <meta name="twitter:description" content="La piattaforma per scambiare moda in modo smart.">
   <meta name="twitter:image" content="https://swesh.it/swesh-og.png">
+
+  <!-- STILI SPECIFICI DELLA PAGINA (puoi portarli in style.css quando vuoi) -->
+  <style>
+    :root{
+      --brand:#fd9ef8;
+      --bg:#000;
+      --text:#fff;
+      --card:rgba(255,255,255,.06);
+      --ring:rgba(255,255,255,.12);
+    }
+
+
+    .serif{ font-family:"Playfair Display",serif; }
+
+    .sw-sec{
+      background:#000;
+      color:#fff;
+      padding:140px 0 120px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .sw-wrap{
+      max-width:1200px;
+      margin:0 auto;
+      padding:0 40px;
+    }
+
+    .sw-eyebrow{
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:.8rem;
+      opacity:.75;
+      margin-bottom:8px;
+    }
+
+    .sw-h2{
+      font-size: clamp(2.5rem, 4vw, 3rem);
+      font-weight:800;
+      letter-spacing:-.5px;
+      margin:0 0 28px;
+    }
+
+    .sw-h3{
+      font-size:1.25rem;
+      margin:0 0 8px;
+      font-weight:800;
+      letter-spacing:-.2px;
+    }
+
+    .muted{ color:rgba(255,255,255,.8); }
+
+    /* grid problemi */
+    .sw-grid3{
+      display:grid;
+      gap:24px;
+      grid-template-columns:repeat(3,1fr);
+    }
+
+    @media(max-width:900px){
+      .sw-grid3{ grid-template-columns:1fr; }
+    }
+
+    .glass-card{
+      position:relative;
+      border:1px solid var(--ring);
+      background: rgba(255,255,255,0.02);
+      border-radius:24px;
+      padding:24px;
+      backdrop-filter: blur(12px) saturate(140%);
+      transform: translateY(24px) scale(.98);
+      opacity:0;
+      filter:blur(4px);
+      transition:
+        opacity .8s cubic-bezier(.16,1,.3,1),
+        transform .8s cubic-bezier(.16,1,.3,1),
+        filter .8s;
+    }
+
+    .glass-card.show{
+      opacity:1;
+      transform:translateY(0) scale(1);
+      filter:blur(0);
+      transition-delay: var(--delay, 0ms);
+    }
+
+    .glass-card:hover{
+      transform: translateY(-6px);
+      border-color: rgba(253,158,248,.35);
+      box-shadow: 0 18px 60px rgba(253,158,248,.18);
+    }
+
+    .problem-card{                 /* usa la tua classe della card, se diversa cambia nome */
+  display: flex;
+  flex-direction: column;
+}
+
+.illu{
+  height: 210px;               /* prova 190–230px finché ti piace */
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;        /* oppure center */
+  margin-bottom:12px;
+}
+
+.illu img{
+  max-height: 100%;
+  width: auto;                 /* IMPORTANT: non fisso a 250px */
+  max-width: 250px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 28px rgba(253,158,248,.25));
+}
+
+    .sw-list li{ line-height:1.5; }
+    .sw-list li::marker {
+  color: #fd9ef8;
+}
+
+    /* Soluzione */
+    .solu-grid{
+      display:grid;
+      gap:40px;
+      grid-template-columns:1.1fr 1fr;
+      align-items:center;
+    }
+
+    @media(max-width:980px){
+      .solu-grid{ grid-template-columns:1fr; }
+    }
+
+    .solu-copy .lead{
+      font-size:1.25rem;
+      line-height:1.5;
+    }
+
+checks{ margin:16px 0 0; padding:0; list-style:none; display:grid; gap:8px; }
+.checks li{ position:relative; padding-left:28px; }
+.checks li::before{ content:""; position:absolute; left:0; top:.35em; width:18px; height:18px; border-radius:50%; background:linear-gradient(135deg,var(--brand),rgba(253,158,248,.7)); box-shadow:0 0 0 1px rgba(255,255,255,.25) inset; }
+
+
+
+    .solu-illu img{
+      width:0px;
+      max-width:100%;
+      display:block;
+      margin:0 auto;
+      filter: drop-shadow(0 16px 40px rgba(253,158,248,.25));
+    }
+
+    /* Come funziona */
+    .steps{
+      display:grid;
+      gap:24px;
+      grid-template-columns:repeat(3,1fr);
+    }
+
+    @media(max-width:980px){
+      .steps{ grid-template-columns:1fr; }
+    }
+
+    /* 1. Modifica la tua classe base .step-card così: */
+.step-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 24px;
+  padding: 48px;
+  backdrop-filter: blur(12px);
+  
+  /* Animazione base (ingresso + hover) gestita con una riga sola */
+  transition: all 0.4s ease-out;
+  
+  /* Stato iniziale (invisibile) */
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* 2. Mantieni questa per far apparire le card (javascript) */
+.step-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 3. L'effetto HOVER (Semplice e Pulito) */
+.step-card:hover {
+  border-color: #fd9ef8; /* Bordo Rosa */
+  box-shadow: 0 0 25px rgba(253, 158, 248, 0.3); /* Bagliore diffuso */
+  transform: translateY(-10px); /* Sale verso l'alto */
+}
+
+.step-illu{
+  height: 190px;              /* scegli un valore che ti torna visivamente */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;      /* <- IMPORTANT: tutte le immagini “a pavimento” */
+  margin-bottom: 10px;
+}
+
+.step-illu img{
+  max-height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 32px rgba(253,158,248,.25));
+}
+
+/* per evitare differenze dovute ai margini default degli h3 */
+.step-card .sw-h3{
+  margin: 0 0 10px;
+}
+
+    /* 3 punti – versione clean elegante */
+    #soluzione-intro .checks{
+      margin-top:32px;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+align-self: flex-start;
+  width: 100%;
+    }
+/* Allineamento pulito colonna sinistra in #soluzione-intro */
+#soluzione-intro .solu-copy{
+  max-width: 560px;          /* larghezza fissa per testo + pillole */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;   /* niente centramenti strani */
+}
+
+/* la lista usa tutta la stessa larghezza del testo */
+#soluzione-intro .checks{
+  width: 100%;
+  margin-top: 32px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* le pillole si “stirano” esattamente quanto il testo */
+#soluzione-intro .checks li{
+  align-self: stretch;       /* stessa larghezza della colonna */
+  text-align: left;
+  padding: 18px 26px;        /* puoi ridurre il padding se sembrano ancora troppo larghe */
+}
+
+
+    #soluzione-intro .checks li{
+      list-style:none;
+      border:1px solid rgba(253,158,248,.35);
+      border-radius:18px;
+      padding:18px 26px;
+      background:rgba(255,255,255,.05);
+      backdrop-filter:blur(8px);
+
+      font-size:1.28rem;
+      font-weight:600;
+      line-height:1.4;
+      letter-spacing:-.25px;
+
+      transform:translateY(22px) scale(.98);
+      opacity:0;
+      filter:blur(4px);
+      transition:
+        opacity .7s cubic-bezier(.16,1,.3,1),
+        transform .7s cubic-bezier(.16,1,.3,1),
+        filter .7s cubic-bezier(.16,1,.3,1);
+    }
+
+    #soluzione-intro .checks li.show{
+      opacity:1;
+      transform:translateY(0) scale(1);
+      filter:blur(0);
+      box-shadow:0 0 0 0 rgba(253,158,248,.45);
+      animation:sweshGlowIn .9s ease forwards;
+    }
+
+    #soluzione-intro .checks li:hover{
+      transform:translateY(-3px) scale(1);
+      border-color:rgba(253,158,248,.55);
+    }
+
+    @keyframes sweshGlowIn{
+      0%{ box-shadow:0 0 0px 0 rgba(253,158,248,.0); }
+      100%{ box-shadow:0 0 34px 0 rgba(253,158,248,.23); }
+    }
+
+    #soluzione-intro .checks li.show:hover{
+      box-shadow:0 0 48px 0 rgba(253,158,248,.32);
+      border-color:rgba(253,158,248,.55);
+    }
+
+    /* sparkles */
+    #soluzione-intro .checks li.show::before,
+    #soluzione-intro .checks li.show::after{
+      content:"";
+      position:absolute;
+      width:6px;
+      height:6px;
+      background:rgba(253,158,248,.9);
+      border-radius:50%;
+      pointer-events:none;
+      opacity:0;
+      transform:scale(0.3);
+    }
+
+    #soluzione-intro .checks li.show::before{
+      top:-6px;
+      left:22px;
+      animation: sparkleA .9s ease-out .32s forwards;
+    }
+
+    #soluzione-intro .checks li.show::after{
+      bottom:-6px;
+      right:22px;
+      animation: sparkleB 1s ease-out .42s forwards;
+    }
+
+    @keyframes sparkleA{
+      0%   { opacity:0; transform:scale(.3); }
+      30%  { opacity:1; transform:scale(1.3); }
+      60%  { opacity:1; transform:scale(.9); }
+      100% { opacity:0; transform:scale(.3); }
+    }
+
+    @keyframes sparkleB{
+      0%   { opacity:0; transform:scale(.3); }
+      30%  { opacity:1; transform:scale(1.4); }
+      60%  { opacity:1; transform:scale(.95); }
+      100% { opacity:0; transform:scale(.3); }
+    }
+
+    /* Footer pill */
+    .swesh-footer{
+      background:#000;
+      padding:40px 20px 80px;
+    }
+
+    .swesh-footer-pill{
+      max-width:1100px;
+      margin:0 auto;
+      padding:14px 22px;
+      border-radius:9999px;
+
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(10px);
+
+      text-align:center;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.95rem;
+      line-height: 1.6;
+
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,0.06),
+        0 2px 10px rgba(0,0,0,0.35);
+    }
+
+    .swesh-footer-pill p{ margin:0; }
+
+    @media (max-width: 560px){
+      .swesh-footer{ padding:30px 16px 60px; }
+      .swesh-footer-pill{ padding:12px 18px; font-size:0.9rem; }
+    }
+
+    .panel{
+      border-radius:28px;
+      padding:28px;
+      background:var(--card);
+      border:1px solid var(--ring);
+      backdrop-filter:saturate(140%) blur(10px);
+    }
+
+    .container{
+      max-width:1120px;
+      margin-inline:auto;
+      padding-inline:24px;
+    }
+
+
+
+
+    /* ============================
+       TWEAK RESPONSIVE INDEX
+       ============================ */
+
+    @media (max-width: 768px) {
+      .sw-sec {
+        padding: 96px 0 80px;
+      }
+
+      .sw-wrap {
+        padding: 0 20px;
+      }
+
+      .solu-grid {
+        gap: 32px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .sw-sec {
+        padding: 80px 0 64px;
+      }
+
+      .sw-h2 {
+        font-size: 1.6rem;
+      }
+
+      .sw-h3 {
+        font-size: 1.05rem;
+      }
+
+      .swesh-footer-pill {
+        border-radius: 24px;
+      }
+    }
+
+
+
+      /* =========================
+   FAQ ACCORDION
+   ========================= */
+.faq-list{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-top:24px;
+}
+
+.faq-item{
+  border-radius:22px;
+  background:var(--card);
+  border:1px solid var(--ring);
+  backdrop-filter: blur(10px) saturate(140%);
+  overflow:hidden;
+  transition:
+    border-color .25s ease,
+    box-shadow .25s ease,
+    transform .25s ease;
+}
+
+.faq-item:hover{
+  transform:translateY(-2px);
+  border-color:rgba(253,158,248,.45);
+  box-shadow:0 16px 40px rgba(253,158,248,.18);
+}
+
+/* HEADER FAQ (DOMANDA) */
+.faq-question{
+  width:100%;
+  padding:18px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  background:transparent;
+  border:none;
+  outline:none;
+  cursor:pointer;
+  color:var(--text);
+  text-align:left;
+}
+
+.faq-question h3.sw-h3{
+  margin:0;
+  font-size:1.05rem;
+}
+
+/* ICONE + / - */
+.faq-toggle{
+  flex-shrink:0;
+  width:26px;
+  height:26px;
+  border-radius:999px;
+  border:1px solid rgba(253,158,248,.7);
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:
+    transform .25s cubic-bezier(.16,1,.3,1),
+    background .25s ease,
+    box-shadow .25s ease;
+}
+
+.faq-toggle::before,
+.faq-toggle::after{
+  content:"";
+  position:absolute;
+  border-radius:999px;
+  background:rgba(253,158,248,.95);
+  transition:opacity .2s ease, transform .2s ease;
+}
+
+/* linea orizzontale */
+.faq-toggle::before{
+  width:12px;
+  height:2px;
+}
+
+/* linea verticale (per fare il +) */
+.faq-toggle::after{
+  width:2px;
+  height:12px;
+}
+
+/* stato aperto */
+.faq-item.active .faq-toggle{
+  background:rgba(253,158,248,.16);
+  box-shadow:0 0 22px rgba(253,158,248,.45);
+}
+
+/* quando è aperto, la linea verticale sparisce -> diventa "-" */
+.faq-item.active .faq-toggle::after{
+  opacity:0;
+  transform:scale(.3);
+}
+
+/* RISPOSTA (contenuto che si apre) */
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  padding:0 20px;
+  opacity:0;
+  transform:translateY(-4px);
+  transition:
+    max-height .32s cubic-bezier(.16,1,.3,1),
+    opacity .22s ease,
+    transform .22s ease,
+    padding-top .22s ease,
+    padding-bottom .22s ease;
+}
+
+.faq-answer p{
+  margin-top:0;
+  margin-bottom:12px;
+}
+
+/* stato aperto: animazione */
+.faq-item.active .faq-answer{
+  max-height:420px;           /* abbastanza per tutti i paragrafi */
+  opacity:1;
+  transform:translateY(0);
+  padding-bottom:16px;
+}
+
+/* RESPONSIVE FAQ */
+@media (max-width: 768px){
+  .faq-question{
+    padding:16px 16px;
+  }
+
+  .faq-answer{
+    padding:0 16px;
+  }
+
+  .faq-question h3.sw-h3{
+    font-size:0.98rem;
+  }
+}
+
+@media (max-width: 480px){
+  .faq-question{
+    gap:8px;
+  }
+
+  .faq-toggle{
+    width:24px;
+    height:24px;
+  }
+}
+.swesh-highlight{
+  color:#fd9ef8;
+  font-family: "Panchang-Bold";
+  font-weight: 800; /* opzionale, puoi toglierlo se il woff2 è already bold */
+  letter-spacing:-0.5px;
+}
+/* Mobile hero */
+@media (max-width: 768px) {
+  .hero {
+    padding: 305px 20px;
+  }
+
+  .hero h1 {
+    font-size: 75px;
+  }
+
+  .hero h2 {
+    font-size: 20px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .cta-button {
+    font-size: 14px;
+    padding: 12px 28px;
+  }
+}
+
+
+      /* Logo nella navbar */
+.swesh-logo {
+  width: 85px;          /* dimensione perfetta per navbar */
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 0 6px rgba(253,158,248,0.6))
+          drop-shadow(0 0 14px rgba(253,158,248,0.3)); /* glow elegante */
+  transition: transform .2s ease, filter .2s ease;
+}
+
+.navbar .logo a {
+  display: flex;
+  align-items: center;
+}
+
+
+
+
+
+
+/* ====== SOLUZIONE ====== */
+.soluzione {
+  padding-top: clamp(70px, 10vw, 130px);
+}
+
+/* layout top */
+.soluzione-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: clamp(28px, 6vw, 96px);
+  align-items: start;
+}
+
+/* left */
+.soluzione-title {
+  font-size: clamp(35px, 6.4vw, 65px);
+  line-height: 1.03;
+  letter-spacing: -0.03em;
+  margin-top: 12px;
+}
+
+/* right hierarchy */
+.soluzione-kicker{
+  font-weight: 800;
+  opacity: .9;
+  margin: 0 0 10px;
+}
+
+.soluzione-h3{
+  margin: 0 0 14px;
+  font-size: clamp(22px, 1.6vw + 16px, 36px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.accent{ color:#fd9ef8; }
+
+.soluzione-right p {
+  max-width: 64ch;
+  line-height: 1.7;
+  opacity: 0.9;
+  margin-bottom: 14px;
+}
+
+.soluzione-lead{
+  font-size: 18px;
+  font-weight: 600;
+  opacity: 1;
+}
+
+.soluzione-claim{
+  margin-bottom: 56px;
+  font-weight: 800;
+  font-size: 18px;
+}
+.soluzione-claim span{ color:#fd9ef8; }
+
+/* cards: BIGGER */
+.soluzione-cards {
+  margin-top: clamp(52px, 7vw, 92px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.solu-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 24px;
+  padding: clamp(26px, 2.2vw, 38px);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.02),
+    0 34px 70px rgba(0,0,0,0.62);
+  min-height: 360px;
+  transition: transform .25s ease, border-color .25s ease, background .25s ease;
+}
+
+.solu-card:hover{
+  transform: translateY(-4px);
+  border-color: rgba(253,158,248,.28);
+  background: rgba(255,255,255,0.03);
+}
+
+/* card come colonna (se non lo hai già) */
+.solu-card{
+  display: flex;
+  flex-direction: column;
+}
+
+/* contenitore illustrazione con altezza fissa */
+.solu-illu{
+  height: 250px;              /* prova 170–210px finché ti torna */
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;      /* oppure center se preferisci */
+  margin-bottom: 22px;
+}
+
+/* immagine “contenuta” dentro l’altezza */
+.solu-illu img{
+  max-height: 100%;
+  width: auto;                /* IMPORTANT: non fissare width */
+  max-width: 250px;           /* se vuoi mantenere la dimensione max */
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 34px rgba(0,0,0,.55));
+}
+
+/* evita differenze di margini default */
+.solu-card h3{
+  margin: 0 0 10px;
+}
+
+.solu-card p{
+  margin: 0;
+  opacity: .86;
+  line-height: 1.65;
+  max-width: 40ch;
+}
+
+/* ====== SCROLL REVEAL (simple & elegant) ====== */
+[data-reveal]{
+  opacity: 0;
+  transform: translateY(18px);
+  filter: blur(2px);
+  transition:
+    opacity .7s ease,
+    transform .7s ease,
+    filter .7s ease;
+  will-change: opacity, transform, filter;
+}
+
+[data-reveal].is-visible{
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  [data-reveal]{ transition:none; opacity:1; transform:none; filter:none; }
+  .solu-card{ transition:none; }
+}
+
+/* responsive */
+@media (max-width: 980px){
+  .soluzione-grid{ grid-template-columns: 1fr; }
+  .soluzione-cards{ grid-template-columns: 1fr; }
+  .solu-card{ min-height: auto; }
+}
+
+
+
+.emotional-cards {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 56px 20px;
+  padding-bottom: 110px;
+}
+
+.emotional-cards h2 {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 22ch; /* bello “editoriale”, va a righe pulite */
+}
+
+.cards {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.card {
+  padding: 22px 20px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.card-icon {
+  width: 75px;          /* più grande dei simboli */
+  height: 75px;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 14px;  /* spazio prima del titolo */
+}
+
+.card h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.card p {
+  margin: 0;
+  opacity: 0.8;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+@media (max-width: 820px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card-icon {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+
+
+
+
+.sw-section-title--designer{
+  text-align: center;
+  margin: 90px 0 60px;
+  padding: 0 16px;
+}
+
+.sw-section-title--designer .sw-eyebrow{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.62);
+  margin-bottom: 14px;
+}
+
+.sw-section-title--designer .sw-eyebrow::before,
+.sw-section-title--designer .sw-eyebrow::after{
+  content:"";
+  width: 34px;
+  height: 1px;
+  background: rgba(255,255,255,0.14);
+}
+
+.sw-section-title--designer .sw-h2{
+  font-size: clamp(38px, 5vw, 60px);
+  font-weight: 750;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: #fff;
+}
+
+.sw-section-title--designer .sw-accent{
+  color: #fd9ef8;
+  text-shadow: 0 0 16px rgba(253,158,248,0.35);
+}
+
+.sw-section-title--designer .sw-title-divider{
+  width: min(520px, 70%);
+  height: 2px;
+  margin: 18px auto 16px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(253,158,248,0),
+    rgba(253,158,248,0.9),
+    rgba(253,158,248,0)
+  );
+  filter: blur(0.2px);
+  box-shadow: 0 0 22px rgba(253,158,248,0.25);
+}
+
+.sw-section-title--designer .sw-subtitle{
+  max-width: 62ch;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.72);
+}
+
+.sw-center-eyebrow .sw-eyebrow {
+  display: block;
+  text-align: center;
+  margin-bottom: 20px; /* CHIAVE */
+  letter-spacing: 0.18em;
+  
+}
+
+
+.sw-center-eyebrow .sw-h2 {
+  margin-top: 0;
+}
+.sw-center-eyebrow .sw-section-title {
+  margin-top: 0px;
+}
+
+
+
+.soluzione-claim{ margin-bottom: 56px; }
+
+.emotional-cards > h2{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 22ch;
+  margin-bottom: 36px;
+}
+
+.emotional-cards{ padding-bottom: 110px; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================================
+   TORINO & SOCIAL PROOF STYLES
+   ============================================ */
+
+/* --- Layout Torino --- */
+.torino-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.lead-text {
+  font-size: 1.4rem;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.story-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 30px;
+  max-width: 480px;
+}
+
+/* Badge Torino */
+.torino-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 20px;
+  background: rgba(253,158,248,0.1);
+  border: 1px solid rgba(253,158,248,0.3);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.badge-icon {
+  font-size: 24px;
+}
+
+.badge-text strong {
+  color: #fd9ef8;
+  font-family: 'Intro', sans-serif;
+  letter-spacing: 0.5px;
+}
+.badge-text .muted {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+}
+
+/* Dot pulsante "Live" */
+.dot-live {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #fd9ef8;
+  border-radius: 50%;
+  margin-right: 6px;
+  box-shadow: 0 0 10px #fd9ef8;
+  animation: pulseLive 2s infinite;
+}
+
+@keyframes pulseLive {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(253, 158, 248, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(253, 158, 248, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(253, 158, 248, 0); }
+}
+
+/* --- Visual Polaroid --- */
+.torino-visual {
+  position: relative;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.polaroid {
+  position: absolute;
+  background: #fff;
+  padding: 12px 12px 40px 12px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  transform: rotate(-6deg);
+  transition: transform 0.4s ease;
+  width: 260px;
+  z-index: 1;
+}
+
+.polaroid img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  filter: grayscale(20%) contrast(1.1); /* Effetto vintage */
+}
+
+.polaroid span {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-family: 'Courier New', monospace; /* Font stile macchina da scrivere */
+  color: #000;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.polaroid.p-2 {
+  transform: rotate(4deg) translate(40px, 40px);
+  z-index: 2;
+}
+
+.torino-visual:hover .polaroid.p-1 { transform: rotate(-12deg) translate(-20px, 0); }
+.torino-visual:hover .polaroid.p-2 { transform: rotate(8deg) translate(50px, 20px); }
+
+/* --- Proof Grid --- */
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 50px;
+}
+
+.proof-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.proof-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(253,158,248,0.4);
+}
+
+/* Card in evidenza (Numeri) */
+.proof-card.highlight {
+  background: linear-gradient(145deg, rgba(253,158,248,0.1), rgba(0,0,0,0));
+  border-color: rgba(253,158,248,0.3);
+}
+
+.proof-number {
+  font-family: 'PPGatwick-Bold';
+  font-size: 3.5rem;
+  color: #fd9ef8;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.proof-label {
+  font-family: 'Intro';
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.proof-desc {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* Card Testimonial */
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.avatar-circle {
+  width: 40px;
+  height: 40px;
+  background: #fd9ef8;
+  color: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-family: 'PPGatwick-Bold';
+}
+
+.user-role {
+  display: block;
+  font-size: 0.75rem;
+  color: #fd9ef8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.quote {
+  font-style: italic;
+  font-size: 0.95rem;
+  opacity: 0.85;
+  line-height: 1.5;
+}
+
+/* Card CTA finale */
+.proof-card.cta-proof {
+  background: #fd9ef8;
+  color: #000;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+}
+
+.proof-card.cta-proof:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(253,158,248,0.4);
+}
+
+.icon-plus {
+  font-size: 4rem;
+  font-weight: 300;
+  line-height: 0.8;
+}
+
+.proof-card.cta-proof h3 {
+  font-family: 'Intro';
+  font-size: 1.4rem;
+  margin: 10px 0 5px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .torino-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .torino-visual {
+    height: 300px;
+    margin-top: 20px;
+  }
+  
+  .proof-grid {
+    grid-template-columns: 1fr; /* Una colonna su mobile */
+  }
+  
+  .proof-card {
+    min-height: auto;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- COLORI SWESH --- */
+:root {
+  --swesh-pink: #fd9ef8;
+  --swesh-bg-dark: #0a0a0a;
+  --swesh-input-bg: #1a1a1a;
+}
+
+/* Utility classes */
+.text-pink { color: var(--swesh-pink); }
+.fw-bold { font-weight: 800; }
+
+/* --- SEZIONE PRINCIPALE --- */
+.swesh-waitlist {
+  background-color: var(--swesh-bg-dark);
+  /* Aggiunge un sottile bagliore rosa ai bordi della sezione */
+  border: 1px solid rgba(253, 158, 248, 0.15);
+  box-shadow: 0 0 40px rgba(253, 158, 248, 0.05);
+  border-radius: 30px;
+  padding: 60px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  max-width: 1100px;
+  margin: 50px auto; /* Centra la sezione */
+  overflow: hidden;
+}
+
+.notify-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+/* --- TIPOGRAFIA --- */
+.swesh-title {
+  font-size: 2.7rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.swesh-subtitle {
+  font-size: 1.25rem;
+  color: #cccccc;
+  line-height: 1.5;
+  margin-bottom: 40px;
+}
+
+/* --- FORM STYLING --- */
+.form-row-pills {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.form-row-pills .input-pill {
+    flex: 1;
+    min-width: 0;
+}
+
+.swesh-input {
+  background-color: var(--swesh-input-bg);
+  border: 2px solid transparent;
+  color: #ffffff;
+  padding: 18px 25px;
+  border-radius: 50px; /* Pillola estrema */
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.swesh-input.full-width {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.swesh-input::placeholder {
+  color: #666666;
+}
+
+/* Effetto Focus Neon */
+.swesh-input:focus {
+  border-color: var(--swesh-pink);
+  background-color: #000;
+  box-shadow: 0 0 15px rgba(253, 158, 248, 0.3);
+}
+
+/* --- BOTTONE SWESH --- */
+.swesh-button {
+  width: 100%;
+  background-color: var(--swesh-pink);
+  color: #000000;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 20px 30px;
+  border-radius: 50px;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(253, 158, 248, 0.4);
+  letter-spacing: 0.5px;
+}
+
+.swesh-button:hover {
+  background-color: #ffb6fc; /* Rosa leggermente più chiaro */
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(253, 158, 248, 0.6);
+}
+
+/* --- IMMAGINE E ANIMAZIONE --- */
+.notify-image {
+    flex-shrink: 0;
+}
+
+.notify-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+
+@keyframes floatAnimation {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 968px) {
+  .swesh-waitlist {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 30px;
+  }
+
+  .swesh-title { font-size: 2.5rem; }
+
+  .form-row-pills {
+      flex-direction: column;
+  }
+
+  .notify-image {
+    margin-top: 40px;
+    order: -1; /* Decommenta se vuoi il razzo sopra il testo su mobile */
+  }
+    .notify-image img {
+        max-width: 250px;
+        margin: 0 auto;
+    }
+}
+
+
+
+
+
+/* --- SEZIONE CARDS PROBLEMA --- */
+.problem-cards-section {
+  padding: 80px 0;
+  background-color: #000;
+  color: #fff;
+}
+
+.section-header {
+  margin-bottom: 60px;
+  text-align: center; /* Titolo centrato */
+}
+
+.section-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #fff;
+  margin-top: 10px;
+  line-height: 1;
+}
+
+.sw-pill-simple {
+  color: #fd9ef8;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+/* GRIGLIA */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonne uguali */
+  gap: 30px;
+}
+
+/* STILE CARD SWESH */
+.sw-card {
+  background: #0a0a0a; /* Grigio scurissimo, quasi nero */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Bordo sottile grigio */
+  border-radius: 24px; /* Angoli molto arrotondati */
+  overflow: hidden; /* Per tenere l'immagine dentro i bordi curvi */
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Effetto Hover (Magia Swesh) */
+.sw-card:hover {
+  transform: translateY(-10px); /* Sale verso l'alto */
+  border-color: #fd9ef8; /* Bordo diventa rosa */
+  box-shadow: 0 10px 40px rgba(253, 158, 248, 0.15); /* Ombra rosa soffusa */
+}
+
+/* CONTENITORE IMMAGINE */
+.card-img-container {
+  width: 100%;
+  height: 250px; /* Ho aumentato leggermente l'altezza per dare più spazio */
+  background-color: #000; /* Sfondo nero per riempire lo spazio vuoto se l'immagine è stretta */
+  position: relative;
+  display: flex;          /* AGGIUNTO: Per centrare l'immagine */
+  align-items: center;    /* AGGIUNTO: Centra verticalmente */
+  justify-content: center;/* AGGIUNTO: Centra orizzontalmente */
+  overflow: hidden;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  /* LA MODIFICA FONDAMENTALE È QUI SOTTO: */
+  object-fit: contain; /* <--- CAMBIA QUESTO! Prima era 'cover' */
+  display: block;
+}
+
+/* CORPO DEL TESTO */
+.card-body {
+  padding: 30px;
+  flex-grow: 1; /* Assicura che le card abbiano stessa altezza */
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.highlight {
+  color: #fd9ef8;
+  font-weight: 600;
+}
+
+/* RESPONSIVE */
+@media (max-width: 968px) {
+  .cards-grid {
+    grid-template-columns: 1fr; /* Una colonna su mobile */
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </style>
 </head>
 
 <body>
