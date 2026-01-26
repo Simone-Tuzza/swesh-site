@@ -1,7 +1,7 @@
  <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta name="description" content="Swesh è la piattaforma gratuita per lo scambio di vestiti tra privati. Dai nuova vita ai tuoi abiti usati: trova, proponi e condividi capi con altri utenti." />
+    <meta name="description" content="Swesh è la piattaforma gratuita per scambiare stile tra privati a Torino. Dai vita al tuo archivio: trova pezzi unici e condividi vibes con la community." />
     <meta name="robots" content="index, follow">
   <meta charset="UTF-8" />
   <link rel="shortcut icon" type="image/png" href="assets/img/swesh.png" />
@@ -17,7 +17,7 @@
     })(window, document, "clarity", "script", "v3hey5j90l");
 </script>
 
-  <title>SWESH - Cio che sei continua</title>
+  <title>SWESH - Ciò che sei continua</title>
 
   <!-- Font preload -->
   <link rel="preload" href="assets/fonts/Panchang-Bold.otf" as="font" type="font/woff2" crossorigin>
@@ -33,15 +33,15 @@
   <link rel="canonical" href="https://swesh.it/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://swesh.it/">
-  <meta property="og:title" content="SWESH – Scambia Moda, Crea Ricordi.">
-  <meta property="og:description" content="La piattaforma per scambiare moda in modo smart.">
+  <meta property="og:title" content="SWESH – Ciò che sei , continua.">
+  <meta property="og:description" content="La piattaforma per scambiare stile in modo smart.">
   <meta property="og:image" content="https://swesh.it/swesh-og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="SWESH – Scambia Moda, Crea Ricordi.">
-  <meta name="twitter:description" content="La piattaforma per scambiare moda in modo smart.">
+  <meta name="twitter:title" content="SWESH – Ciò che sei , continua.">
+  <meta name="twitter:description" content="La piattaforma per scambiare stile in modo smart.">
   <meta name="twitter:image" content="https://swesh.it/swesh-og.png">
 
   <!-- STILI SPECIFICI DELLA PAGINA (puoi portarli in style.css quando vuoi) -->
@@ -644,20 +644,6 @@ align-self: flex-start;
 }
 
 
-      /* Logo nella navbar */
-.swesh-logo {
-  width: 85px;          /* dimensione perfetta per navbar */
-  height: auto;
-  display: block;
-  filter: drop-shadow(0 0 6px rgba(253,158,248,0.6))
-          drop-shadow(0 0 14px rgba(253,158,248,0.3)); /* glow elegante */
-  transition: transform .2s ease, filter .2s ease;
-}
-
-.navbar .logo a {
-  display: flex;
-  align-items: center;
-}
 
 
 
@@ -1531,7 +1517,114 @@ align-self: flex-start;
 
 
 
+/* --- NAVBAR STRUTTURA --- */
+/* --- 1. STILI BASE (Comuni) --- */
+/* --- STILI BASE --- */
+.swesh-navbar {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  z-index: 9999;
+  background: #000;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 15px 0;
+}
 
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  position: relative;
+  z-index: 10001;
+}
+
+.logo-img { height: 50px !important; width: auto !important; display: block; transform: scale(1.6); transform-origin: left center; position: relative;
+  z-index: 10; }
+@media (max-width: 768px) {
+  .logo-img {
+    height: 50px !important; /* Un po' più piccola base */
+    transform: scale(1.6);     /* Niente zoom esagerato su mobile */
+  }
+}
+/* --- DESKTOP --- */
+.nav-desktop { display: flex; align-items: center; gap: 30px; }
+.vision-link { color: #fff; text-decoration: none; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; font-family: sans-serif; transition: 0.3s; }
+.vision-link:hover { color: #fd9ef8; text-shadow: 0 0 15px rgba(253, 158, 248, 0.5); }
+.swesh-btn-small { background-color: #fd9ef8; color: #000; font-weight: 800; text-decoration: none; padding: 10px 24px; border-radius: 50px; text-transform: uppercase; font-size: 0.85rem; transition: transform 0.2s; display: inline-block; }
+.swesh-btn-small:hover { transform: scale(1.05); background-color: #fff; }
+
+/* --- MOBILE HIDDEN ELEMENTS --- */
+.hamburger-btn { display: none; }
+.mobile-menu-overlay { display: none; }
+
+/* --- MEDIA QUERY (MOBILE) --- */
+@media (max-width: 768px) {
+  .nav-desktop { display: none !important; }
+  
+  .hamburger-btn {
+    display: flex; background: none; border: none; cursor: pointer;
+    width: 40px; height: 40px; flex-direction: column; justify-content: center; align-items: flex-end; gap: 6px; z-index: 10001;
+  }
+  .bar { width: 30px; height: 2px; background-color: #fff; transition: 0.4s; border-radius: 2px; }
+  .bar.mid { width: 20px; }
+  
+  .hamburger-btn.is-active .bar.top { transform: translateY(8px) rotate(45deg); width: 30px; }
+  .hamburger-btn.is-active .bar.mid { opacity: 0; width: 0; }
+  .hamburger-btn.is-active .bar.bot { transform: translateY(-8px) rotate(-45deg); width: 30px; }
+
+  .mobile-menu-overlay {
+    display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background: #000; justify-content: center; align-items: center; z-index: 10000;
+    opacity: 0; visibility: hidden; pointer-events: none; transition: all 0.4s ease;
+  }
+  .mobile-menu-overlay.is-active { opacity: 1; visibility: visible; pointer-events: all; }
+  
+  .mobile-links { display: flex; flex-direction: column; align-items: center; gap: 30px; }
+  .mobile-link { font-size: 2rem; color: #fff; text-decoration: none; font-weight: 800; text-transform: uppercase; }
+  .mobile-cta { background: #fd9ef8; color: #000; padding: 15px 40px; border-radius: 50px; font-weight: 800; text-transform: uppercase; text-decoration: none; }
+}
+/* --- FIX OVERLAY Z-INDEX --- */
+.overlay {
+  z-index: 20000 !important; /* Deve essere più alto della navbar (che è 9999) */
+  position: fixed; /* Assicuriamoci che sia fisso */
+  top: 0; left: 0; width: 100%; height: 100vh;
+  pointer-events: none; /* Lascia cliccare sotto quando non è attivo */
+}
+
+/* Aggiorniamo la classe attiva del menu per combaciare con il tuo script (.active invece di .is-active) */
+.mobile-menu-overlay.active {
+  opacity: 1; visibility: visible; pointer-events: all;
+}
+
+.hamburger-btn.active .bar.top { transform: translateY(8px) rotate(45deg); width: 30px; }
+.hamburger-btn.active .bar.mid { opacity: 0; width: 0; }
+.hamburger-btn.active .bar.bot { transform: translateY(-8px) rotate(-45deg); width: 30px; }
+
+
+/* L'animazione Rosa: Il livello più alto in assoluto */
+.overlay {
+  z-index: 20000 !important; 
+}
+
+/* Il Menu Hamburger: Alto, ma SOTTO l'animazione */
+.mobile-menu-overlay {
+  z-index: 9998; 
+}
+
+/* La Navbar: Sotto al menu */
+.swesh-navbar {
+  z-index: 9990;
+}
+
+
+
+#cc {
+  /* Questo crea uno spazio invisibile sopra la sezione quando ci arrivi tramite link */
+  /* Regolalo in base all'altezza della tua navbar (es. 80px o 100px) */
+  scroll-margin-top: 100px; 
+}
 
 
 
@@ -1549,18 +1642,43 @@ align-self: flex-start;
   <div class="overlay"></div>
 
   <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">
-      <a href="index.html" id="link-home">
-          <img src="assets/img/stella.png" alt="Swesh Logo" class="swesh-logo">
-</a>
+  <div class="swesh-navbar">
+  <div class="container nav-container">
+    
+    <a href="index.html" class="nav-logo" id="link-home">
+      <img src="assets/img/stella.png" alt="Swesh Logo" class="logo-img">
+    </a>
 
+    <div class="nav-desktop">
+      <a href="chi-siamo.html" id="link-chi-siamo" class="vision-link js-vision-trigger">
+        Visione <span class="arrow-icon"></span>
+      </a>
+      <a href="#cc" class="swesh-btn-small">
+        Unisciti
+      </a>
     </div>
-    <div class="menu" id="menu">
-      <a href="chi-siamo.html" id="link-chi-siamo">visione</a>
-    </div>
-    <div class="hamburger" id="hamburger">&#9776;</div>
+
+    <button class="hamburger-btn" id="hamburger" aria-label="Menu">
+      <span class="bar top"></span>
+      <span class="bar mid"></span>
+      <span class="bar bot"></span>
+    </button>
+
+  </div>
+
+  <div class="mobile-menu-overlay" id="menu">
+  <nav class="mobile-links">
+    
+    <a href="chi-siamo.html" class="mobile-link js-vision-trigger">Visione</a> 
+    
+    
+    
+    <div class="mobile-divider"></div>
+    
+    <a href="#cc" class="mobile-cta" onclick="closeMenuManually()">Unisciti</a>
   </nav>
+</div>
+</div>
 
 
   <!-- Hero Section -->
@@ -1592,7 +1710,7 @@ align-self: flex-start;
           <h3 class="card-title">1. FAST FASHION</h3>
           <p class="card-text">
             Il pianeta non ha bisogno di un'altra maglietta usa e getta.
-            È un ciclo tossico: produci, consuma, butta.
+            È un ciclo tossico: produci, consuma, butta.</br>
             <span class="highlight">Swesh ferma lo spreco dando una seconda vita (e una nuova storia) a ciò che esiste già.</span>
           </p>
         </div>
@@ -1605,8 +1723,8 @@ align-self: flex-start;
         <div class="card-body">
           <h3 class="card-title">2. GEN-Z DISCONNESSA</h3>
           <p class="card-text">
-            Siamo la generazione più connessa della storia, eppure siamo <span class="highlight">iper-connessi ma soli</span>.
-            Viviamo per i like di un algoritmo. Swesh usa il telefono solo come mezzo per <span class="highlight">arrivare alle persone reali.</span>
+            È la generazione più connessa della storia, eppure sono <span class="highlight">iper-connessi ma soli</span>.
+            Vivono per i like di un algoritmo. Swesh usa il telefono solo come mezzo per <span class="highlight">arrivare alle persone reali.</span>
           </p>
         </div>
       </div>
@@ -1619,7 +1737,7 @@ align-self: flex-start;
           <h3 class="card-title">3. MARKETPLACE FREDDI</h3>
           <p class="card-text">
             <span class="highlight">Non sei un magazziniere.</span>
-            Smetti di perdere tempo a stampare etichette per guadagnare 5€ su Vinted.
+            Smetti di perdere tempo a stampare etichette per guadagnare 5€.
             <span class="highlight">Il prezzo uccide la vibe.</span>
             Qui non si vende per svuotare, si scambia per arricchire.
           </p>
@@ -1639,7 +1757,7 @@ align-self: flex-start;
       <div class="soluzione-left" data-reveal>
         <span class="sw-eyebrow">La soluzione</span>
         <h2 class="soluzione-title">
-          <span class="swesh-highlight">swesh</span><br>
+          <span class="swesh-highlight">swesh,</span><br>
           Meno cose.<br>
           Più significato.
         </h2>
@@ -1648,11 +1766,11 @@ align-self: flex-start;
       <div class="soluzione-right" data-reveal>
         <h3 class="soluzione-h3">
           Ogni oggetto è <span class="accent">identità</span>.<br>
-          swesh lo rimette in movimento.
+          Swesh lo rimette in movimento.
         </h3>
 
         <p class="soluzione-lead">
-          swesh nasce per cambiare il modo in cui diamo valore agli oggetti:
+          Swesh nasce per cambiare il modo in cui diamo valore agli oggetti:
           non aggiungendo prezzo, ma <strong>connessione</strong>.
         </p>
 
@@ -1713,7 +1831,7 @@ align-self: flex-start;
       </div>
     </section>
 
-
+  </br></br></br>
     <!-- 3) MICRO-INTRO PER LE MACRO CATEGORIE (separa e chiarisce) -->
     <div data-reveal class="sw-center-eyebrow">              
   <span class="sw-eyebrow">Cosa puoi scambiare</span>
@@ -1880,7 +1998,7 @@ align-self: flex-start;
 
 
   <!-- NOTIFY SECTION -->
-  <section class="notify-section swesh-waitlist">
+  <section id="cc" class="notify-section swesh-waitlist">
   <div class="notify-content">
     <h2 class="swesh-title">Diventa parte di <span class="swesh-highlight">swesh</span></h2>
 
@@ -1911,6 +2029,10 @@ align-self: flex-start;
 </section>
 
 
+</br>
+</br>
+</br>
+</br>
 
 
 <!-- FAQ SECTION -->
@@ -1994,7 +2116,7 @@ align-self: flex-start;
         </button>
         <div class="faq-answer">
           <p class="muted">
-          No
+          No.
           Qui non accumuli: <strong> trasmetti. </strong>
           </p>
         </div>
@@ -2026,8 +2148,7 @@ align-self: flex-start;
         <div class="faq-answer">
           <p class="muted">
             Ti avviseremo sul <strong>lancio dell’app</strong>, sulle novità della community
-            e su contenuti legati a <strong>stile autentico, idee nuove e vibrazioni positive</strong>.
-            Preferiamo mandarti solo aggiornamenti che abbiano senso per te.
+            e su contenuti legati a <strong>Swesh</strong>.
           </p>
         </div>
       </article>
