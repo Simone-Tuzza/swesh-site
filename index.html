@@ -2396,7 +2396,14 @@ align-self: flex-start;
 </script>
 
 
-
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.querySelector('.hamburger-btn');
+    document.body.style.overflow = menu.classList.toggle('is-active') ? 'hidden' : 'auto';
+    btn.classList.toggle('is-active');
+  }
+</script>
 
 
 
