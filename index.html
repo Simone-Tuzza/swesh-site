@@ -161,36 +161,7 @@
   color: #fd9ef8;
 }
 
-    /* Soluzione */
-    .solu-grid{
-      display:grid;
-      gap:40px;
-      grid-template-columns:1.1fr 1fr;
-      align-items:center;
-    }
-
-    @media(max-width:980px){
-      .solu-grid{ grid-template-columns:1fr; }
-    }
-
-    .solu-copy .lead{
-      font-size:1.25rem;
-      line-height:1.5;
-    }
-
-checks{ margin:16px 0 0; padding:0; list-style:none; display:grid; gap:8px; }
-.checks li{ position:relative; padding-left:28px; }
-.checks li::before{ content:""; position:absolute; left:0; top:.35em; width:18px; height:18px; border-radius:50%; background:linear-gradient(135deg,var(--brand),rgba(253,158,248,.7)); box-shadow:0 0 0 1px rgba(255,255,255,.25) inset; }
-
-
-
-    .solu-illu img{
-      width:0px;
-      max-width:100%;
-      display:block;
-      margin:0 auto;
-      filter: drop-shadow(0 16px 40px rgba(253,158,248,.25));
-    }
+    
 
     /* Come funziona */
     .steps{
@@ -254,124 +225,7 @@ checks{ margin:16px 0 0; padding:0; list-style:none; display:grid; gap:8px; }
 }
 
     /* 3 punti – versione clean elegante */
-    #soluzione-intro .checks{
-      margin-top:32px;
-      display:flex;
-      flex-direction:column;
-      gap:20px;
-align-self: flex-start;
-  width: 100%;
-    }
-/* Allineamento pulito colonna sinistra in #soluzione-intro */
-#soluzione-intro .solu-copy{
-  max-width: 560px;          /* larghezza fissa per testo + pillole */
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;   /* niente centramenti strani */
-}
-
-/* la lista usa tutta la stessa larghezza del testo */
-#soluzione-intro .checks{
-  width: 100%;
-  margin-top: 32px;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-/* le pillole si “stirano” esattamente quanto il testo */
-#soluzione-intro .checks li{
-  align-self: stretch;       /* stessa larghezza della colonna */
-  text-align: left;
-  padding: 18px 26px;        /* puoi ridurre il padding se sembrano ancora troppo larghe */
-}
-
-
-    #soluzione-intro .checks li{
-      list-style:none;
-      border:1px solid rgba(253,158,248,.35);
-      border-radius:18px;
-      padding:18px 26px;
-      background:rgba(255,255,255,.05);
-      backdrop-filter:blur(8px);
-
-      font-size:1.28rem;
-      font-weight:600;
-      line-height:1.4;
-      letter-spacing:-.25px;
-
-      transform:translateY(22px) scale(.98);
-      opacity:0;
-      filter:blur(4px);
-      transition:
-        opacity .7s cubic-bezier(.16,1,.3,1),
-        transform .7s cubic-bezier(.16,1,.3,1),
-        filter .7s cubic-bezier(.16,1,.3,1);
-    }
-
-    #soluzione-intro .checks li.show{
-      opacity:1;
-      transform:translateY(0) scale(1);
-      filter:blur(0);
-      box-shadow:0 0 0 0 rgba(253,158,248,.45);
-      animation:sweshGlowIn .9s ease forwards;
-    }
-
-    #soluzione-intro .checks li:hover{
-      transform:translateY(-3px) scale(1);
-      border-color:rgba(253,158,248,.55);
-    }
-
-    @keyframes sweshGlowIn{
-      0%{ box-shadow:0 0 0px 0 rgba(253,158,248,.0); }
-      100%{ box-shadow:0 0 34px 0 rgba(253,158,248,.23); }
-    }
-
-    #soluzione-intro .checks li.show:hover{
-      box-shadow:0 0 48px 0 rgba(253,158,248,.32);
-      border-color:rgba(253,158,248,.55);
-    }
-
-    /* sparkles */
-    #soluzione-intro .checks li.show::before,
-    #soluzione-intro .checks li.show::after{
-      content:"";
-      position:absolute;
-      width:6px;
-      height:6px;
-      background:rgba(253,158,248,.9);
-      border-radius:50%;
-      pointer-events:none;
-      opacity:0;
-      transform:scale(0.3);
-    }
-
-    #soluzione-intro .checks li.show::before{
-      top:-6px;
-      left:22px;
-      animation: sparkleA .9s ease-out .32s forwards;
-    }
-
-    #soluzione-intro .checks li.show::after{
-      bottom:-6px;
-      right:22px;
-      animation: sparkleB 1s ease-out .42s forwards;
-    }
-
-    @keyframes sparkleA{
-      0%   { opacity:0; transform:scale(.3); }
-      30%  { opacity:1; transform:scale(1.3); }
-      60%  { opacity:1; transform:scale(.9); }
-      100% { opacity:0; transform:scale(.3); }
-    }
-
-    @keyframes sparkleB{
-      0%   { opacity:0; transform:scale(.3); }
-      30%  { opacity:1; transform:scale(1.4); }
-      60%  { opacity:1; transform:scale(.95); }
-      100% { opacity:0; transform:scale(.3); }
-    }
+    
 
     /* Footer pill */
     .swesh-footer{
@@ -650,312 +504,13 @@ align-self: flex-start;
 
 
 
-/* ====== SOLUZIONE ====== */
-.soluzione {
-  padding-top: clamp(70px, 10vw, 130px);
-}
-
-/* layout top */
-.soluzione-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.25fr;
-  gap: clamp(28px, 6vw, 96px);
-  align-items: start;
-}
-
-/* left */
-.soluzione-title {
-  font-size: clamp(35px, 6.4vw, 65px);
-  line-height: 1.03;
-  letter-spacing: -0.03em;
-  margin-top: 12px;
-}
-
-/* right hierarchy */
-.soluzione-kicker{
-  font-weight: 800;
-  opacity: .9;
-  margin: 0 0 10px;
-}
-
-.soluzione-h3{
-  margin: 0 0 14px;
-  font-size: clamp(22px, 1.6vw + 16px, 36px);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-}
-
-.accent{ color:#fd9ef8; }
-
-.soluzione-right p {
-  max-width: 64ch;
-  line-height: 1.7;
-  opacity: 0.9;
-  margin-bottom: 14px;
-}
-
-.soluzione-lead{
-  font-size: 18px;
-  font-weight: 600;
-  opacity: 1;
-}
-
-.soluzione-claim{
-  margin-bottom: 56px;
-  font-weight: 800;
-  font-size: 18px;
-}
-.soluzione-claim span{ color:#fd9ef8; }
-
-/* cards: BIGGER */
-.soluzione-cards {
-  margin-top: clamp(52px, 7vw, 92px);
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 26px;
-}
-
-.solu-card {
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.09);
-  border-radius: 24px;
-  padding: clamp(26px, 2.2vw, 38px);
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.02),
-    0 34px 70px rgba(0,0,0,0.62);
-  min-height: 360px;
-  transition: transform .25s ease, border-color .25s ease, background .25s ease;
-}
-
-.solu-card:hover{
-  transform: translateY(-4px);
-  border-color: rgba(253,158,248,.28);
-  background: rgba(255,255,255,0.03);
-}
-
-/* card come colonna (se non lo hai già) */
-.solu-card{
-  display: flex;
-  flex-direction: column;
-}
-
-/* contenitore illustrazione con altezza fissa */
-.solu-illu{
-  height: 250px;              /* prova 170–210px finché ti torna */
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;      /* oppure center se preferisci */
-  margin-bottom: 22px;
-}
-
-/* immagine “contenuta” dentro l’altezza */
-.solu-illu img{
-  max-height: 100%;
-  width: auto;                /* IMPORTANT: non fissare width */
-  max-width: 250px;           /* se vuoi mantenere la dimensione max */
-  display: block;
-  object-fit: contain;
-  filter: drop-shadow(0 18px 34px rgba(0,0,0,.55));
-}
-
-/* evita differenze di margini default */
-.solu-card h3{
-  margin: 0 0 10px;
-}
-
-.solu-card p{
-  margin: 0;
-  opacity: .86;
-  line-height: 1.65;
-  max-width: 40ch;
-}
-
-/* ====== SCROLL REVEAL (simple & elegant) ====== */
-[data-reveal]{
-  opacity: 0;
-  transform: translateY(18px);
-  filter: blur(2px);
-  transition:
-    opacity .7s ease,
-    transform .7s ease,
-    filter .7s ease;
-  will-change: opacity, transform, filter;
-}
-
-[data-reveal].is-visible{
-  opacity: 1;
-  transform: translateY(0);
-  filter: blur(0);
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce){
-  [data-reveal]{ transition:none; opacity:1; transform:none; filter:none; }
-  .solu-card{ transition:none; }
-}
-
-/* responsive */
-@media (max-width: 980px){
-  .soluzione-grid{ grid-template-columns: 1fr; }
-  .soluzione-cards{ grid-template-columns: 1fr; }
-  .solu-card{ min-height: auto; }
-}
-
-
-
-.emotional-cards {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 56px 20px;
-  padding-bottom: 110px;
-}
-
-.emotional-cards h2 {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 22ch; /* bello “editoriale”, va a righe pulite */
-}
-
-.cards {
-  display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.card {
-  padding: 22px 20px;
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,0.12);
-}
-
-.card-icon {
-  width: 75px;          /* più grande dei simboli */
-  height: 75px;
-  object-fit: contain;
-  display: block;
-  margin-bottom: 14px;  /* spazio prima del titolo */
-}
-
-.card h3 {
-  margin: 0 0 6px;
-  font-size: 16px;
-}
-
-.card p {
-  margin: 0;
-  opacity: 0.8;
-  font-size: 14px;
-  line-height: 1.45;
-}
-
-@media (max-width: 820px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-
-  .card-icon {
-    width: 44px;
-    height: 44px;
-  }
-}
 
 
 
 
 
-.sw-section-title--designer{
-  text-align: center;
-  margin: 90px 0 60px;
-  padding: 0 16px;
-}
-
-.sw-section-title--designer .sw-eyebrow{
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.62);
-  margin-bottom: 14px;
-}
-
-.sw-section-title--designer .sw-eyebrow::before,
-.sw-section-title--designer .sw-eyebrow::after{
-  content:"";
-  width: 34px;
-  height: 1px;
-  background: rgba(255,255,255,0.14);
-}
-
-.sw-section-title--designer .sw-h2{
-  font-size: clamp(38px, 5vw, 60px);
-  font-weight: 750;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  margin: 0;
-  color: #fff;
-}
-
-.sw-section-title--designer .sw-accent{
-  color: #fd9ef8;
-  text-shadow: 0 0 16px rgba(253,158,248,0.35);
-}
-
-.sw-section-title--designer .sw-title-divider{
-  width: min(520px, 70%);
-  height: 2px;
-  margin: 18px auto 16px;
-  border-radius: 999px;
-  background: linear-gradient(
-    90deg,
-    rgba(253,158,248,0),
-    rgba(253,158,248,0.9),
-    rgba(253,158,248,0)
-  );
-  filter: blur(0.2px);
-  box-shadow: 0 0 22px rgba(253,158,248,0.25);
-}
-
-.sw-section-title--designer .sw-subtitle{
-  max-width: 62ch;
-  margin: 0 auto;
-  font-size: 16px;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.72);
-}
-
-.sw-center-eyebrow .sw-eyebrow {
-  display: block;
-  text-align: center;
-  margin-bottom: 20px; /* CHIAVE */
-  letter-spacing: 0.18em;
-  
-}
 
 
-.sw-center-eyebrow .sw-h2 {
-  margin-top: 0;
-}
-.sw-center-eyebrow .sw-section-title {
-  margin-top: 0px;
-}
-
-
-
-.soluzione-claim{ margin-bottom: 56px; }
-
-.emotional-cards > h2{
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 22ch;
-  margin-bottom: 36px;
-}
-
-.emotional-cards{ padding-bottom: 110px; }
 
 
 
@@ -1634,6 +1189,795 @@ align-self: flex-start;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- SEZIONE SOLUZIONE GENERALE --- */
+/* --- SEZIONE SOLUZIONE GENERALE --- */
+/* --- SEZIONE SOLUZIONE (Generale) --- */
+/* --- SEZIONE SOLUZIONE (Layout Editoriale) --- */
+/* --- SEZIONE SOLUZIONE (Layout Editoriale Pulito) --- */
+.sw-sec.soluzione {
+  background-color: #000;
+  color: #fff;
+  padding: 120px 0;
+  
+}
+
+.editorial-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr; /* Colonna SX più stretta, DX più larga */
+  gap: 80px;
+  align-items: start;
+}
+
+/* --- COLONNA SINISTRA (Brand) --- */
+.brand-column {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Forza allineamento a SINISTRA */
+  text-align: left;
+}
+
+/* Header Compresso */
+.brand-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sw-eyebrow {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 8px; /* AVVICINA AL TITOLO (Valore negativo) */
+  margin-left: 5px; /* Piccolo offset per allinearlo otticamente alla S gigante */
+  display: block;
+  
+}
+
+.brand-title {
+  font-family: 'Panchang-Bold', sans-serif;
+  font-size: clamp(5rem, 6vw, 8rem);
+  line-height: 0.85; /* Molto compatto */
+  font-weight: 900;
+  color: #fd9ef8;
+  margin-top: 0;
+  margin-bottom: 30px;
+  letter-spacing: -3px;
+}
+
+.dot { color: #fff; }
+
+.brand-subtitle {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  font-weight: 600;
+  padding-left: 5px;
+  border-left: 3px solid #fd9ef8; /* Dettaglio grafico rosa */
+  margin-left: 5px;
+}
+
+.faded { color: #444; text-decoration: line-through; }
+.pink { color: #fff; }
+
+/* --- COLONNA DESTRA (Contenuto) --- */
+.content-column {
+  padding-top: 15px; /* Allinea visivamente l'inizio del testo col titolo a sx */
+}
+
+/* Blocco Testo "Giustificato" Visivamente */
+.manifesto-block {
+  margin-bottom: 60px;
+  border-left: 1px solid rgba(255,255,255,0.1); /* Linea guida sinistra */
+  padding-left: 30px; /* Spazio dal bordo */
+}
+
+.lead-statement {
+  font-size: 1.8rem;
+  line-height: 1.4;
+  color: #aaa;
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+
+.text-white { color: #fff; font-weight: 700; }
+
+.text-body p {
+  font-size: 1.05rem;
+  color: #888;
+  line-height: 1.7; /* Buona leggibilità */
+  margin-bottom: 20px;
+  max-width: 95%; /* Evita righe troppo lunghe */
+}
+
+.signature {
+  color: #fd9ef8 !important;
+  font-style: italic;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+/* --- GRIGLIA VALORI (Orizzontale) --- */
+.values-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 Colonne uguali */
+  gap: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1); /* Linea separatrice sopra */
+  padding-top: 40px;
+}
+
+.value-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra icone e testo */
+  text-align: center;
+}
+
+.value-icon {
+  width: 70px;
+  height: 70px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  transition: transform 0.3s;
+}
+
+.value-box:hover .value-icon {
+  background: rgba(253, 158, 248, 0.2);
+  transform: scale(1.1);
+}
+
+.value-icon img {
+  width: 55px;
+  height: auto;
+}
+
+.value-box h4 {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.value-box p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 992px) {
+  .editorial-grid {
+    grid-template-columns: 1fr; /* Una colonna */
+    gap: 50px;
+  }
+  
+  .brand-column {
+    position: static;
+    margin-bottom: 20px;
+  }
+  
+  .brand-title { font-size: 5rem; }
+  
+  .manifesto-block {
+    border-left: none; /* Rimuovi bordo su mobile per pulizia */
+    padding-left: 0;
+  }
+  
+  .values-row {
+    grid-template-columns: 1fr; /* Una sotto l'altra su mobile */
+    gap: 30px;
+    text-align: left;
+  }
+  
+  .value-box {
+    flex-direction: row; /* Icona a sinistra su mobile */
+    align-items: center;
+    text-align: left;
+    gap: 20px;
+  }
+  
+  .value-icon { margin-bottom: 0; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.values-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 30px;
+
+}
+
+
+
+.value-card {
+
+  background: rgba(255,255,255,0.03); /* Sfondo ultra-leggero */
+
+  border: 1px solid rgba(255,255,255,0.06);
+
+  padding: 40px 30px;
+
+  border-radius: 24px;
+
+  transition: transform 0.3s ease, border-color 0.3s ease;
+
+}
+
+
+
+.value-card:hover {
+
+  transform: translateY(-10px);
+
+  border-color: #fd9ef8;
+
+}
+
+
+
+.icon-box img {
+
+  width: 80px;
+
+  height: auto;
+
+  margin-bottom: 20px;
+
+  opacity: 0.9;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- PILLARS SECTION --- */
+.pillars-section {
+  background-color: #000;
+  padding: 100px 0 150px; /* Spazio abbondante */
+  
+}
+
+/* Header */
+.pillars-header {
+  text-align: left; /* Allineato a sinistra fa più "Editoriale" */
+  margin-bottom: 80px;
+  max-width: 800px;
+}
+
+.pillars-title {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.outline-text {
+  color: transparent; /* Testo vuoto */
+  -webkit-text-stroke: 1px #fff; /* Solo bordo bianco */
+  opacity: 0.5;
+}
+
+.pillars-subtitle {
+  color: #888;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 500px;
+  border-left: 2px solid #fd9ef8; /* Dettaglio rosa */
+  padding-left: 20px;
+}
+
+/* --- GRID & CARDS --- */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  min-height: 500px; /* Altezza minima per renderle imponenti */
+}
+
+.pillar-card {
+  position: relative;
+  background: #111;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Testo in basso */
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s;
+  border: 1px solid rgba(255,255,255,0.1);
+  group: pointer; /* Per gestire hover */
+}
+
+.pillar-card:hover {
+  transform: translateY(-15px); /* Sale verso l'alto */
+  border-color: #fd9ef8; /* Bordo rosa acceso */
+}
+
+/* Sfondo Icona (Effetto Watermark) */
+.pillar-icon-bg {
+  position: absolute;
+  top: -200px;
+  right: -20px;
+  width: 350px;
+  height: 350px;
+  opacity: 0.05; /* Molto trasparente */
+  transition: opacity 0.4s, transform 0.4s;
+  z-index: 1;
+}
+
+.pillar-icon-bg img {
+  width: 100%;
+  height: 100%;
+}
+
+.pillar-card:hover .pillar-icon-bg {
+  opacity: 0.15; /* Più visibile all'hover */
+  
+}
+
+/* Contenuto */
+.pillar-content {
+  position: relative;
+  z-index: 2;
+}
+
+.pillar-name {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 15px;
+  letter-spacing: -1px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.pillar-desc {
+  font-size: 1rem;
+  color: #aaa;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.pillar-desc strong {
+  color: #fff;
+}
+
+/* Call to Action interna */
+.join-tag {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fd9ef8;
+  letter-spacing: 1px;
+  opacity: 0; /* Nascosto di base */
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+.pillar-card:hover .join-tag {
+  opacity: 1; /* Appare all'hover */
+  transform: translateX(0);
+}
+
+/* Gradiente Sfumato (Overlay) */
+.pillar-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 992px) {
+  .pillars-grid {
+    grid-template-columns: 1fr; /* Una sotto l'altra */
+    min-height: auto;
+  }
+  
+  .pillar-card {
+    min-height: 350px; /* Altezza fissa su mobile */
+  }
+
+  .pillars-header {
+    text-align: left;
+    margin-bottom: 50px;
+  }
+
+  .join-tag {
+    opacity: 1; /* Su mobile sempre visibile perché non c'è hover */
+    transform: translateX(0);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- SEZIONE SHOWCASE --- */
+.app-showcase-section {
+  position: relative;
+  background-color: #000;
+  padding: 100px 0;
+  overflow: hidden; /* Fondamentale per il testo che scorre */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- 1. IL MARQUEE (Testo scorrevole sfondo) --- */
+.marquee-container {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%) rotate(-5deg); /* Leggermente inclinato per stile street */
+  width: 100%;
+  display: flex;
+  opacity: 0.1; /* Molto tenue, non deve disturbare */
+  pointer-events: none; /* Non cliccabile */
+  z-index: 0; /* Dietro a tutto */
+}
+
+.marquee-content {
+  font-family: 'Inter', sans-serif; /* O il tuo font bold */
+  font-size: 8rem; /* Gigante */
+  font-weight: 900;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 2px #fff; /* Solo bordo bianco */
+  animation: scrollText 20s linear infinite;
+}
+
+/* Animazione scorrimento */
+@keyframes scrollText {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+/* --- 2. IL LAYOUT (Testo + Telefono) --- */
+.showcase-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2; /* Sopra al testo scorrevole */
+  width: 100%;
+  gap: 50px;
+}
+
+.showcase-text {
+  flex: 1;
+}
+
+.showcase-title {
+  font-size: 3rem;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.showcase-description {
+  font-size: 1.2rem;
+  color: #aaa;
+  line-height: 1.6;
+}
+
+/* --- 3. IL TELEFONO FLUTTUANTE --- */
+.showcase-visual {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.floating-phone {
+  width: 100%;
+  max-width: 850px; /* Dimensione realistica */
+  height: auto;
+  transform: rotate(5deg); /* Inclinato opposto al testo */
+  filter: drop-shadow(0 30px 50px rgba(0,0,0,0.8)); /* Ombra profonda */
+  animation: floatPhone 6s ease-in-out infinite;
+  z-index: 2;
+}
+
+/* Bagliore Neon Dietro */
+.neon-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 250px;
+  background: #fd9ef8;
+  border-radius: 50%;
+  filter: blur(80px); /* Sfocatura massima per effetto glow */
+  opacity: 0.4;
+  z-index: 1;
+  animation: pulseGlow 4s ease-in-out infinite alternate;
+}
+
+/* --- ANIMAZIONI --- */
+@keyframes floatPhone {
+  0% { transform: translateY(0) rotate(5deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+  100% { transform: translateY(0) rotate(5deg); }
+}
+
+@keyframes pulseGlow {
+  0% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.9); }
+  100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+  .showcase-content {
+    flex-direction: column-reverse; /* Telefono sopra, testo sotto */
+    text-align: center;
+  }
+  
+  .marquee-content {
+    font-size: 4rem; /* Più piccolo su mobile */
+  }
+
+  .floating-phone {
+    max-width: 260px;
+    margin-bottom: 30px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- SEZIONE COME FUNZIONA (Restyling) --- */
+.how-it-works {
+  background-color: #000; /* Nero profondo */
+  padding: 120px 0;
+  position: relative;
+}
+
+.hw-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+/* Griglia delle Card */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 Colonne uguali */
+  gap: 30px;
+}
+
+/* La Card Singola */
+.step-card {
+  position: relative;
+  background: #0a0a0a; /* Appena più chiaro dello sfondo */
+  border: 1px solid rgba(255, 255, 255, 0.08); /* Bordo sottile ed elegante */
+  border-radius: 20px;
+  padding: 40px 30px;
+  overflow: hidden; /* Per contenere il numero gigante */
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.step-card:hover {
+  transform: translateY(-10px); /* Sale leggermente */
+  border-color: #fd9ef8; /* Il bordo diventa Rosa Swesh */
+}
+
+/* Numero Gigante Sfondo (01, 02, 03) */
+.step-num {
+  position: absolute;
+  top: -20px;
+  right: -10px;
+  font-size: 8rem;
+  font-weight: 900;
+  font-family: 'Inter', sans-serif; /* O il tuo font bold */
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05); /* Solo contorno sottilissimo */
+  line-height: 1;
+  z-index: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.step-card:hover .step-num {
+  opacity: 0.1; /* Diventa leggermente più visibile all'hover */
+  -webkit-text-stroke: 1px rgba(253, 158, 248, 0.5);
+}
+
+/* Icona */
+.step-illu {
+  position: relative;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.03); /* Cerchio sfondo leggero */
+  border-radius: 50%;
+}
+
+.step-illu img {
+  width: 120px;
+  height: 120px;
+  transition: transform 0.3s;
+}
+
+
+
+/* Contenuto Testuale */
+.step-content {
+  position: relative;
+  z-index: 1;
+}
+
+.sw-h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+}
+
+.muted {
+  font-size: 1rem;
+  color: #888;
+  line-height: 1.6;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 992px) {
+  .steps-grid {
+    grid-template-columns: 1fr; /* Una colonna su mobile */
+    gap: 20px;
+  }
+
+  .step-card {
+    padding: 30px;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .step-num {
+    font-size: 6rem; /* Più piccolo su mobile */
+    top: -10px;
+    right: -10px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </style>
 </head>
 
@@ -1749,145 +2093,146 @@ align-self: flex-start;
   </div>
 </section>
 
-  <section id="soluzione" class="sw-sec soluzione">
-  <div class="sw-wrap">
+ <section id="soluzione" class="sw-sec soluzione">
+  <div class="container">
 
-    <!-- 1) BLOCCO INTRO (2 colonne) -->
-    <div class="soluzione-grid">
-      <div class="soluzione-left" data-reveal>
-        <span class="sw-eyebrow">La soluzione</span>
-        <h2 class="soluzione-title">
-          <span class="swesh-highlight">swesh,</span><br>
-          Meno cose.<br>
-          Più significato.
-        </h2>
+    <div class="editorial-grid">
+      
+      <div class="brand-column" data-reveal>
+        <div class="brand-header">
+          <span class="sw-eyebrow">La soluzione</span>
+          <h2 class="brand-title">swesh<span class="dot">.</span></h2>
+        </div>
+        
+        <div class="brand-subtitle-box">
+          <p class="brand-subtitle">
+            <span class="faded">Più cose.</span><br>
+            <span class="pink">Più Significato.</span>
+          </p>
+        </div>
       </div>
 
-      <div class="soluzione-right" data-reveal>
-        <h3 class="soluzione-h3">
-          Ogni oggetto è <span class="accent">identità</span>.<br>
-          Swesh lo rimette in movimento.
-        </h3>
+      <div class="content-column" data-reveal>
+        
+        <div class="manifesto-block">
+          <h3 class="lead-statement">
+            Ogni oggetto è <span class="text-white">identità</span>. </br>
+            Noi lo rimettiamo in <span class="text-white">movimento</span>.
+          </h3>
+          
+          <div class="text-body">
+            <p>
+              Oggi tutto è scroll, click, acquisto veloce. Quello che ci rappresentava finisce chiuso al buio in un armadio.
+            </p>
+            <p>
+              Swesh ribalta la logica. Qui non compri, <strong>ti riconosci</strong>. 
+              Non accumuli, <strong>trasmetti</strong>.
+            </p>
+            <p class="signature">È eredità tra persone che si assomigliano.</p>
+          </div>
+        </div>
 
-        <p class="soluzione-lead">
-          Swesh nasce per cambiare il modo in cui diamo valore agli oggetti:
-          non aggiungendo prezzo, ma <strong>connessione</strong>.
-        </p>
+        <div class="values-row">
+          
+          <div class="value-box">
+            <div class="value-icon">
+              <img src="assets/img/sale.png" alt="No Price">
+            </div>
+            <h4>Nessun Prezzo</h4>
+            <p>Scambi valore reale.</p>
+          </div>
 
-        <p>
-          Oggi tutto diventa scroll, click, acquisto veloce.
-          E quello che ci ha rappresentato finisce chiuso in un armadio.
-        </p>
+          <div class="value-box">
+            <div class="value-icon">
+              <img src="assets/img/people.png" alt="Meetup">
+            </div>
+            <h4>Niente Pacchi</h4>
+            <p>Incontri dal vivo.</p>
+          </div>
 
-        <p>
-          Swesh ribalta la logica: qui non compri, <strong>ti riconosci</strong>.
-          Non accumuli, <strong>trasmetti</strong>.
-        </p>
+          <div class="value-box">
+            <div class="value-icon">
+              <img src="assets/img/like.png" alt="Match">
+            </div>
+            <h4>Match Reali</h4>
+            <p>Connessioni di stile.</p>
+          </div>
 
-        <p class="soluzione-claim">
-          È <span>eredità tra persone che si assomigliano</span>.
-        </p>
+        </div>
+
       </div>
+
     </div>
 
-
-    <!-- 2) BLOCCO DIFFERENZA + 3 CARD EMOZIONALI (full width) -->
-    <section class="emotional-cards" data-reveal>
-      <h2>Non è un marketplace. <br/>È un passaggio di storie.</h2>
-
-      <div class="cards">
-        <article class="card">
-          <img
-            src="assets/img/sale.png"
-            alt="Nessun prezzo"
-            class="card-icon"
-            loading="lazy"
-          >
-          <h3>Nessun prezzo</h3>
-          <p>Non compri: scambi qualcosa che conta davvero.</p>
-        </article>
-
-        <article class="card">
-          <img
-            src="assets/img/people.png"
-            alt="Nessuna spedizione impersonale"
-            class="card-icon"
-            loading="lazy"
-          >
-          <h3>Nessuna spedizione impersonale</h3>
-          <p>Ci si incontra. La storia passa di mano.</p>
-        </article>
-
-        <article class="card">
-          <img
-            src="assets/img/like.png"
-            alt="Match che hanno senso"
-            class="card-icon"
-            loading="lazy"
-          >
-          <h3>Match che hanno senso</h3>
-          <p>Ti connetti con chi condivide il tuo linguaggio.</p>
-        </article>
-      </div>
-    </section>
-
-  </br></br></br>
-    <!-- 3) MICRO-INTRO PER LE MACRO CATEGORIE (separa e chiarisce) -->
-    <div data-reveal class="sw-center-eyebrow">              
-  <span class="sw-eyebrow">Cosa puoi scambiare</span>
-
-  <div class="sw-section-title sw-section-title--designer">
-    <h2 class="sw-h2">
-      <span class="sw-accent">3</span> modi di essere te stesso
-    </h2>
-
-    <div class="sw-title-divider" aria-hidden="true"></div>
-
-    <p class="sw-subtitle">
-      Tre modi diversi. Stessa vibe. Scegli quello che ti rappresenta oggi.
-    </p>
   </div>
-</div>
+</section>
+
+  
 
 
 
-    <!-- 4) MACRO CATEGORIE -->
-    <div class="soluzione-cards">
-      <article class="solu-card" data-reveal>
-        <div class="solu-illu">
-          <img src="assets/svg/4.svg" alt="Stile">
+
+<section class="pillars-section">
+  <div class="container">
+    
+    <div class="pillars-header" data-reveal>
+      <h2 class="pillars-title">
+        <span class="sw-eyebrow">Il nostro manifesto</span>
+        3 Modi di vivere <br>
+        <span class="outline-text">La Street Culture.</span>
+      </h2>
+      <p class="pillars-subtitle">
+        Swesh parte da qui. Dai fondamentali. <br>
+        Ma la community sei tu: porta il tuo mondo dentro l'app.
+      </p>
+    </div>
+
+    <div class="pillars-grid">
+      
+      <article class="pillar-card style-card" data-reveal>
+        <div class="pillar-content">
+          <div class="pillar-icon-bg">
+            <img src="assets/svg/4.svg" alt="" aria-hidden="true">
+          </div>
+          <h3 class="pillar-name">STILE</h3>
+          <p class="pillar-desc">
+            Il capo che ti <strong>rappresenta</strong>. <br>
+            Quello che indossi non per moda, ma perché ti fa sentire a casa.
+          </p>
+          <span class="join-tag"></span>
         </div>
-        <h3>STILE</h3>
-        <p>
-          Il capo che ti rappresenta.
-          Quello che indossi non per moda,
-          ma perché ti fa sentire a casa.
-        </p>
+        <div class="pillar-overlay"></div>
       </article>
 
-      <article class="solu-card" data-reveal>
-        <div class="solu-illu">
-          <img src="assets/svg/5.svg" alt="Arte">
+      <article class="pillar-card art-card" data-reveal>
+        <div class="pillar-content">
+          <div class="pillar-icon-bg">
+            <img src="assets/svg/5.svg" alt="" aria-hidden="true">
+          </div>
+          <h3 class="pillar-name">ARTE & DESIGN</h3>
+          <p class="pillar-desc">
+            L’oggetto che ti <strong>ispira</strong>.
+            Riempi la stanza di vibe giuste.
+          </p>
+          <span class="join-tag"> </span>
         </div>
-        <h3>ARTE</h3>
-        <p>
-          L’oggetto che ti ispira.
-          Non decorazione,
-          ma un segno che parla di te.
-        </p>
+        <div class="pillar-overlay"></div>
       </article>
 
-      <article class="solu-card" data-reveal>
-        <div class="solu-illu">
-          <img src="assets/svg/6.svg" alt="Musica">
+      <article class="pillar-card music-card" data-reveal>
+        <div class="pillar-content">
+          <div class="pillar-icon-bg">
+            <img src="assets/svg/6.svg" alt="" aria-hidden="true">
+          </div>
+          <h3 class="pillar-name">MUSICA</h3>
+          <p class="pillar-desc">
+            Il ricordo che non smette di <strong>suonare.</strong> Un disco, una cassetta, un momento che ritorna.
+          </p>
+          <span class="join-tag"> </span>
         </div>
-        <h3>MUSICA</h3>
-        <p>
-          Il ricordo che non smette di suonare.
-          Un disco, una cassetta,
-          un momento che ritorna.
-        </p>
+        <div class="pillar-overlay"></div>
       </article>
+
     </div>
 
   </div>
@@ -1898,46 +2243,94 @@ align-self: flex-start;
 
 
 
-
   <!-- COME FUNZIONA -->
-  <section id="come-funziona" class="sw-sec">
-    <div class="sw-wrap">
+  <!-- COME FUNZIONA -->
+  <section id="come-funziona" class="sw-sec how-it-works">
+  <div class="sw-wrap container">
+
+    <div class="hw-header text-center">
       <div class="sw-eyebrow">Come funziona</div>
       <h2 class="sw-h2 reveal">Semplice. Diretto. Umano.</h2>
-
-      <div class="steps">
-        <!-- STEP 1 -->
-        <article class="step-card reveal" style="--delay:0ms">
-          <div class="step-illu">
-            <img src="assets/svg/7.svg" alt="">
-          </div>
-          <h3 class="sw-h3">TROVA IL TUO <span class="" style="color:#fd9ef8">FLOW</span></h3>
-          <p class="muted">Trova oggetti che parlano la tua lingua, non quella di un algoritmo. </br> Qui non cerchi per categoria, esplori per affinità.</p>
-        </article>
-
-        <!-- STEP 2 -->
-        <article class="step-card reveal" style="--delay:120ms">
-          <div class="step-illu">
-            <img src="assets/svg/8.svg" alt="">
-          </div>
-          <h3 class="sw-h3">PREPARATI A <span class="" style="color:#fd9ef8">SCAMBIARE</span></h3>
-          <p class="muted">Chat, meet & swap: tutto semplice, sicuro e divertente. </br>La storia passa di mano in mano.</p>
-        </article>
-
-        <!-- STEP 3 -->
-        <article class="step-card reveal" style="--delay:220ms">
-          <div class="step-illu">
-            <img src="assets/svg/9.svg" alt="">
-          </div>
-          <h3 class="sw-h3">SETTA LA TUA <span class="" style="color:#fd9ef8">VIBE</span></h3>
-          <p class="muted">Il tuo profilo non è un magazzino.</br> È il tuo archivio digitale. </br>Racconta chi sei attraverso i pezzi che hai amato e che ora lasci andare.</p>
-        </article>
-      </div>
     </div>
-  </section>
+
+    <div class="steps-grid">
+
+      <article class="step-card reveal" style="--delay:0ms">
+        <span class="step-num">01</span> <div class="step-illu">
+          <img src="assets/svg/7.svg" alt="Flow Icon">
+        </div>
+        <div class="step-content">
+          <h3 class="sw-h3">TROVA IL TUO <span style="color:#fd9ef8">FLOW</span></h3>
+          <p class="muted">
+            Trova oggetti che parlano la tua lingua, non quella di un algoritmo. <br>
+            Qui non cerchi per categoria, esplori per affinità.
+          </p>
+        </div>
+      </article>
+
+      <article class="step-card reveal" style="--delay:120ms">
+        <span class="step-num">02</span>
+        <div class="step-illu">
+          <img src="assets/svg/8.svg" alt="Swap Icon">
+        </div>
+        <div class="step-content">
+          <h3 class="sw-h3">PREPARATI A <span style="color:#fd9ef8">SCAMBIARE</span></h3>
+          <p class="muted">
+            Chat, meet & swap: tutto semplice, sicuro e divertente. <br>
+            La storia passa di mano in mano.
+          </p>
+        </div>
+      </article>
+
+      <article class="step-card reveal" style="--delay:220ms">
+        <span class="step-num">03</span>
+        <div class="step-illu">
+          <img src="assets/svg/9.svg" alt="Vibe Icon">
+        </div>
+        <div class="step-content">
+          <h3 class="sw-h3">SETTA LA TUA <span style="color:#fd9ef8">VIBE</span></h3>
+          <p class="muted">
+            Il tuo profilo non è un magazzino. È il tuo archivio digitale. <br>
+            Racconta chi sei attraverso i pezzi che hai amato e che ora lasci andare.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
 
 
+<section class="app-showcase-section">
+  
+  <div class="marquee-container">
+    <div class="marquee-content">
+      SWESH APP • WORK IN PROGRESS • SWESH APP • WORK IN PROGRESS • SWESH APP • WORK IN PROGRESS •&nbsp;
+    </div>
+    <div class="marquee-content">
+      SWESH APP • WORK IN PROGRESS • SWESH APP • WORK IN PROGRESS • SWESH APP • WORK IN PROGRESS •&nbsp;
+    </div>
+  </div>
 
+  <div class="container showcase-content">
+    
+    <div class="showcase-text">
+      <h2 class="showcase-title">La tua nuova<br><span style="color: #fd9ef8;">ADDICTION.</span></h2>
+      <p class="showcase-description">
+        Basta scrollare feed pieni di roba basic. <br>
+        Cerca il tuo prossimo grail e chiudi il deal. <br>
+        Lo scambio non è mai stato così veloce.
+      </p>
+    </div>
+
+    <div class="showcase-visual">
+      <img src="assets/img/mokk.png" alt="Swesh App Preview" class="floating-phone">
+      
+      <div class="neon-circle"></div>
+    </div>
+
+  </div>
+</section>
 
 
 
