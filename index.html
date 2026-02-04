@@ -9,13 +9,6 @@
 <link rel="icon" type="image/png" href="/favicon.ico">
 <link rel="apple-touch-icon" href="/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "v3hey5j90l");
-</script>
 
   <title>SWESH - Ciò che sei continua</title>
 
@@ -2586,6 +2579,7 @@
         <a href="privacy.html" style="font-size:1.2rem; color: #ffffff; text-decoration: none;">Privacy Policy</a>
         <span style="color: #ffffff; margin: 0 5px;">•</span>
         <a href="cookies.html" style="font-size:1.2rem; color: #ffffff; text-decoration: none;">Cookie Policy</a>
+        <a href="#" onclick="localStorage.removeItem('swesh_cookie_consent'); location.reload(); return false;" style="font-size:1.2rem; color: #ffffff; text-decoration: none; margin-left:10px;">• Rivedi Consenso</a>
       </div>
 
     </div>
@@ -2797,6 +2791,71 @@
     btn.classList.toggle('is-active');
   }
 </script>
+
+
+
+
+
+
+
+<script>
+(function() {
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('btn-accept');
+  const rejectBtn = document.getElementById('btn-reject');
+  
+  // Funzione che carica Google Analytics (SOLO SE ACCETTATO)
+  function loadAnalytics() {
+    // Carica lo script di Google
+    const script = document.createElement('script');
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-RMVVZB0HWL"; // IL TUO ID
+    script.async = true;
+    document.head.appendChild(script);
+
+    // Inizializza Google
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RMVVZB0HWL', { 'anonymize_ip': true }); // IP Anonimizzato per extra sicurezza GDPR
+    
+    console.log("Swesh Analytics Loaded: ON");
+  }
+
+  // Controlla se l'utente ha già scelto in passato
+  const consent = localStorage.getItem('swesh_cookie_consent');
+
+  if (consent === 'accepted') {
+    // Se aveva già accettato, carica subito Analytics
+    loadAnalytics();
+  } else if (consent === 'rejected') {
+    // Se aveva rifiutato, non fare nulla (rispetta la scelta)
+  } else {
+    // Se non c'è scelta, MOSTRA IL BANNER
+    banner.style.display = 'block';
+  }
+
+  // Click su ACCETTO
+  acceptBtn.addEventListener('click', function() {
+    localStorage.setItem('swesh_cookie_consent', 'accepted');
+    banner.style.display = 'none';
+    loadAnalytics(); // Fa partire Google ORA
+  });
+
+  // Click su RIFIUTO
+  rejectBtn.addEventListener('click', function() {
+    localStorage.setItem('swesh_cookie_consent', 'rejected');
+    banner.style.display = 'none';
+    // Non carichiamo nulla. L'utente naviga anonimo.
+  });
+})();
+</script>
+
+
+
+
+
+
+
 
 
 
