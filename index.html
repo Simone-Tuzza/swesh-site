@@ -1039,7 +1039,7 @@
 }
 
 .card-text {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.7);
 }
@@ -1088,19 +1088,59 @@
   z-index: 10001;
 }
 
-.logo-img { height: 50px !important; width: auto !important; display: block; transform: scale(1.6); transform-origin: left center; position: relative;
-  z-index: 10; }
+.logo-img { 
+  height: 50px !important; 
+  width: auto !important; 
+  display: block; 
+  transform: scale(1.6); 
+  transform-origin: left center; 
+  position: relative;
+  z-index: 10; 
+}
+
 @media (max-width: 768px) {
   .logo-img {
-    height: 50px !important; /* Un po' più piccola base */
-    transform: scale(1.6);     /* Niente zoom esagerato su mobile */
+    height: 50px !important;
+    transform: scale(1.6);
   }
 }
+
 /* --- DESKTOP --- */
-.nav-desktop { display: flex; align-items: center; gap: 30px; }
-.vision-link { color: #fff; text-decoration: none; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; font-family: sans-serif; transition: 0.3s; }
-.vision-link:hover { color: #fd9ef8; text-shadow: 0 0 15px rgba(253, 158, 248, 0.5); }
-.swesh-btn-small { background-color: #fd9ef8; color: #000; font-weight: 800; text-decoration: none; padding: 10px 24px; border-radius: 50px; text-transform: uppercase; font-size: 0.85rem; transition: transform 0.2s; display: inline-block; }
+.nav-desktop { 
+  display: flex; 
+  align-items: center; 
+  gap: 25px; /* Ho ridotto leggermente il gap (da 30 a 25) per far stare tutto comodo */
+}
+
+/* Questa è la classe aggiornata per i nuovi link */
+.nav-item { 
+  color: #fff; 
+  text-decoration: none; 
+  font-weight: 700; 
+  font-size: 0.9rem; 
+  text-transform: uppercase; 
+  letter-spacing: 1px; 
+  font-family: sans-serif; 
+  transition: 0.3s; 
+}
+
+.nav-item:hover { 
+  color: #fd9ef8; 
+  text-shadow: 0 0 15px rgba(253, 158, 248, 0.5); 
+}
+
+.swesh-btn-small { 
+  background-color: #fd9ef8; 
+  color: #000; 
+  font-weight: 800; 
+  text-decoration: none; 
+  padding: 10px 24px; 
+  border-radius: 50px; 
+  text-transform: uppercase; 
+  font-size: 0.85rem; 
+  transition: transform 0.2s; 
+  display: inline-block; 
+}
 .swesh-btn-small:hover { transform: scale(1.05); background-color: #fff; }
 
 /* --- MOBILE HIDDEN ELEMENTS --- */
@@ -1118,53 +1158,24 @@
   .bar { width: 30px; height: 2px; background-color: #fff; transition: 0.4s; border-radius: 2px; }
   .bar.mid { width: 20px; }
   
-  .hamburger-btn.is-active .bar.top { transform: translateY(8px) rotate(45deg); width: 30px; }
-  .hamburger-btn.is-active .bar.mid { opacity: 0; width: 0; }
-  .hamburger-btn.is-active .bar.bot { transform: translateY(-8px) rotate(-45deg); width: 30px; }
+  .hamburger-btn.active .bar.top { transform: translateY(8px) rotate(45deg); width: 30px; }
+  .hamburger-btn.active .bar.mid { opacity: 0; width: 0; }
+  .hamburger-btn.active .bar.bot { transform: translateY(-8px) rotate(-45deg); width: 30px; }
 
   .mobile-menu-overlay {
     display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-    background: #000; justify-content: center; align-items: center; z-index: 10000;
+    background: #000; justify-content: center; align-items: center; z-index: 9998;
     opacity: 0; visibility: hidden; pointer-events: none; transition: all 0.4s ease;
   }
-  .mobile-menu-overlay.is-active { opacity: 1; visibility: visible; pointer-events: all; }
+  .mobile-menu-overlay.active { opacity: 1; visibility: visible; pointer-events: all; }
   
-  .mobile-links { display: flex; flex-direction: column; align-items: center; gap: 30px; }
-  .mobile-link { font-size: 2rem; color: #fff; text-decoration: none; font-weight: 800; text-transform: uppercase; }
+  .mobile-links { display: flex; flex-direction: column; align-items: center; gap: 25px; } /* Gap leggermente ridotto per mobile */
+  .mobile-link { font-size: 1.8rem; color: #fff; text-decoration: none; font-weight: 800; text-transform: uppercase; }
   .mobile-cta { background: #fd9ef8; color: #000; padding: 15px 40px; border-radius: 50px; font-weight: 800; text-transform: uppercase; text-decoration: none; }
 }
-/* --- FIX OVERLAY Z-INDEX --- */
-.overlay {
-  z-index: 20000 !important; /* Deve essere più alto della navbar (che è 9999) */
-  position: fixed; /* Assicuriamoci che sia fisso */
-  top: 0; left: 0; width: 100%; height: 100vh;
-  pointer-events: none; /* Lascia cliccare sotto quando non è attivo */
-}
 
-/* Aggiorniamo la classe attiva del menu per combaciare con il tuo script (.active invece di .is-active) */
-.mobile-menu-overlay.active {
-  opacity: 1; visibility: visible; pointer-events: all;
-}
-
-.hamburger-btn.active .bar.top { transform: translateY(8px) rotate(45deg); width: 30px; }
-.hamburger-btn.active .bar.mid { opacity: 0; width: 0; }
-.hamburger-btn.active .bar.bot { transform: translateY(-8px) rotate(-45deg); width: 30px; }
-
-
-/* L'animazione Rosa: Il livello più alto in assoluto */
-.overlay {
-  z-index: 20000 !important; 
-}
-
-/* Il Menu Hamburger: Alto, ma SOTTO l'animazione */
-.mobile-menu-overlay {
-  z-index: 9998; 
-}
-
-/* La Navbar: Sotto al menu */
-.swesh-navbar {
-  z-index: 9990;
-}
+/* Z-INDEX FIXES */
+.overlay { z-index: 20000 !important; }
 
 
 
@@ -1399,7 +1410,62 @@
   .value-icon { margin-bottom: 0; }
 }
 
+/* --- AGGIUNGI QUESTO PER IL DESKTOP --- */
+/* Serve per mantenere l'allineamento centrato anche su desktop */
+.value-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrato su desktop */
+}
 
+
+/* --- MODIFICA LA PARTE MOBILE COSÌ --- */
+@media (max-width: 992px) {
+  
+  /* ... altre regole esistenti ... */
+  
+  .editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .values-row {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  /* QUESTA È LA PARTE CRUCIALE AGGIORNATA */
+  .value-box {
+    display: flex;
+    flex-direction: row; /* Mette Icona e Blocco Testo vicini */
+    align-items: center; /* Centra verticalmente l'icona */
+    text-align: left;
+    gap: 25px; /* Spazio tra icona e testo */
+    padding: 0 10px; /* Un po' di margine ai lati */
+  }
+
+  .value-icon {
+    margin-bottom: 0;
+    flex-shrink: 0; /* Impedisce all'icona di schiacciarsi */
+  }
+
+  /* Allinea il testo a sinistra su mobile */
+  .value-info {
+    align-items: flex-start; 
+    text-align: left;
+  }
+
+  .value-box h4 {
+    margin-bottom: 2px; /* Avvicina il titolo alla descrizione */
+    font-size: 1.2rem; /* Leggermente più grande per leggibilità */
+  }
+  
+  .value-box p {
+    font-size: 1rem;
+    color: #888;
+    margin: 0;
+  }
+}
 
 
 
@@ -1494,7 +1560,7 @@
 /* --- PILLARS SECTION --- */
 .pillars-section {
   background-color: #000;
-  padding: 100px 0 150px; /* Spazio abbondante */
+  padding: 80px 0 80px; /* Spazio abbondante */
   
 }
 
@@ -1987,9 +2053,11 @@
     </a>
 
     <div class="nav-desktop">
-      <a href="chi-siamo.html" id="link-chi-siamo" class="vision-link js-vision-trigger">
-        Visione <span class="arrow-icon"></span>
-      </a>
+      <a href="#problematica" class="nav-item">Problema</a>
+      <a href="#soluzione" class="nav-item">Soluzione</a>
+      <a href="#manifesto" class="nav-item">Manifesto</a>
+      <a href="#come-funziona" class="nav-item">Come funziona</a>
+      
       <a href="#cc" class="swesh-btn-small">
         Unisciti
       </a>
@@ -2004,17 +2072,18 @@
   </div>
 
   <div class="mobile-menu-overlay" id="menu">
-  <nav class="mobile-links">
-    
-    <a href="chi-siamo.html" class="mobile-link js-vision-trigger">Visione</a> 
-    
-    
-    
-    <div class="mobile-divider"></div>
-    
-    <a href="#cc" class="mobile-cta" onclick="closeMenuManually()">Unisciti</a>
-  </nav>
-</div>
+    <nav class="mobile-links">
+      
+      <a href="#problematica" class="mobile-link" onclick="closeMenuManually()">Problema</a>
+      <a href="#soluzione" class="mobile-link" onclick="closeMenuManually()">Soluzione</a>
+      <a href="#manifesto" class="mobile-link" onclick="closeMenuManually()">Manifesto</a>
+      <a href="#come-funziona" class="mobile-link" onclick="closeMenuManually()">Come funziona</a>
+      
+      <div class="mobile-divider"></div>
+      
+      <a href="#cc" class="mobile-cta" onclick="closeMenuManually()">Unisciti</a>
+    </nav>
+  </div>
 </div>
 
 
@@ -2046,9 +2115,10 @@
         <div class="card-body">
           <h3 class="card-title">1. FAST FASHION</h3>
           <p class="card-text">
-            Il pianeta non ha bisogno di un'altra maglietta usa e getta.
+           <span class="highlight"> Basta Hype usa e getta.</span></br>
             È un ciclo tossico: produci, consuma, butta.</br>
-            <span class="highlight">Swesh ferma lo spreco dando una seconda vita (e una nuova storia) a ciò che esiste già.</span>
+            Il pianeta soffoca sotto tonnellate di vestiti.</br>
+            Swesh spezza il loop: Non buttare.</br>  <span class="highlight">Passa il testimone.</span>
           </p>
         </div>
       </div>
@@ -2060,8 +2130,8 @@
         <div class="card-body">
           <h3 class="card-title">2. GEN-Z DISCONNESSA</h3>
           <p class="card-text">
-            È la generazione più connessa della storia, eppure sono <span class="highlight">iper-connessi ma soli</span>.
-            Vivono per i like di un algoritmo. Swesh usa il telefono solo come mezzo per <span class="highlight">arrivare alle persone reali.</span>
+            <span class="highlight">Iper-connessi, ma disconnessi dalla realtà.</span></br>
+            La Gen-Z é ostaggia di un algoritmo che nutre di like ma lascia affamati di umanità.</br> Swesh usa il telefono solo come mezzo per <span class="highlight">arrivare alle persone reali.</span>
           </p>
         </div>
       </div>
@@ -2073,9 +2143,9 @@
         <div class="card-body">
           <h3 class="card-title">3. MARKETPLACE FREDDI</h3>
           <p class="card-text">
-            <span class="highlight">Non sei un magazziniere.</span>
-            Smetti di perdere tempo a stampare etichette per guadagnare 5€.
-            <span class="highlight">Il prezzo uccide la vibe.</span>
+            <span class="highlight">Non sei un magazziniere.</span></br>
+            Smetti di perdere tempo a stampare etichette per guadagnare 5€.</br>
+            <span class="highlight">Il prezzo uccide la vibe.</span></br>
             Qui non si vende per svuotare, si scambia per arricchire.
           </p>
         </div>
@@ -2110,12 +2180,12 @@
         <div class="manifesto-block">
           <h3 class="lead-statement">
             Ogni oggetto è <span class="text-white">identità</span>. </br>
-            Noi lo rimettiamo in <span class="text-white">movimento</span>.
+            Lo rimettiamo in <span class="text-white">movimento</span>.
           </h3>
           
           <div class="text-body">
             <p>
-              Oggi tutto è scroll, click, acquisto veloce. Quello che ci rappresentava finisce chiuso al buio in un armadio.
+              Oggi tutto è scroll, click, acquisto veloce. Quello che ti rappresentava finisce chiuso al buio in un armadio.
             </p>
             <p>
               Swesh ribalta la logica. Qui non compri, <strong>ti riconosci</strong>. 
@@ -2131,24 +2201,30 @@
             <div class="value-icon">
               <img src="assets/img/sale.png" alt="No Price">
             </div>
-            <h4>Nessun Prezzo</h4>
-            <p>Scambi valore reale.</p>
+            <div class="value-info">
+                <h4>Nessun Prezzo</h4>
+                <p>Scambi valore reale.</p>
+            </div>
           </div>
 
           <div class="value-box">
             <div class="value-icon">
               <img src="assets/img/people.png" alt="Meetup">
             </div>
-            <h4>Niente Pacchi</h4>
-            <p>Incontri dal vivo.</p>
+            <div class="value-info">
+                <h4>Niente Pacchi</h4>
+                <p>Incontri dal vivo.</p>
+            </div>
           </div>
 
           <div class="value-box">
             <div class="value-icon">
               <img src="assets/img/like.png" alt="Match">
             </div>
-            <h4>Match Reali</h4>
-            <p>Connessioni di stile.</p>
+            <div class="value-info">
+                <h4>Match Reali</h4>
+                <p>Connessioni di stile.</p>
+            </div>
           </div>
 
         </div>
@@ -2165,18 +2241,18 @@
 
 
 
-<section class="pillars-section">
+<section  id="manifesto"class="pillars-section">
   <div class="container">
     
     <div class="pillars-header" data-reveal>
       <h2 class="pillars-title">
-        <span class="sw-eyebrow">Il nostro manifesto</span>
+        <span class="sw-eyebrow">Il manifesto</span>
         3 Modi di vivere <br>
         <span class="outline-text">La Street Culture.</span>
       </h2>
       <p class="pillars-subtitle">
         Swesh parte da qui. Dai fondamentali. <br>
-        Ma la community sei tu: porta il tuo mondo dentro l'app.
+        Ma la community sei tu: porta il tuo mondo dentro Swesh.
       </p>
     </div>
 
@@ -2204,7 +2280,7 @@
           </div>
           <h3 class="pillar-name">ARTE & DESIGN</h3>
           <p class="pillar-desc">
-            L’oggetto che ti <strong>ispira</strong>.
+            L’oggetto che ti <strong>ispira</strong>.</br>
             Riempi la stanza di vibe giuste.
           </p>
           <span class="join-tag"> </span>
@@ -2219,7 +2295,7 @@
           </div>
           <h3 class="pillar-name">MUSICA</h3>
           <p class="pillar-desc">
-            Il ricordo che non smette di <strong>suonare.</strong> Un disco, una cassetta, un momento che ritorna.
+            Il loop che non si <strong>spegne mai.</strong></br> Un disco, una cassetta, un momento che ritorna.
           </p>
           <span class="join-tag"> </span>
         </div>
@@ -2255,7 +2331,7 @@
         <div class="step-content">
           <h3 class="sw-h3">TROVA IL TUO <span style="color:#fd9ef8">FLOW</span></h3>
           <p class="muted">
-            Trova oggetti che parlano la tua lingua, non quella di un algoritmo. <br>
+            Trova oggetti che parlano la <strong style="color: #fff;">tua lingua. </strong> <br>
             Qui non cerchi per categoria, esplori per affinità.
           </p>
         </div>
@@ -2269,7 +2345,7 @@
         <div class="step-content">
           <h3 class="sw-h3">PREPARATI A <span style="color:#fd9ef8">SCAMBIARE</span></h3>
           <p class="muted">
-            Chat, meet & swap: tutto semplice, sicuro e divertente. <br>
+            <strong style="color: #fff;">Chat, meet & swap:</strong> tutto semplice, sicuro e divertente. <br>
             La storia passa di mano in mano.
           </p>
         </div>
@@ -2283,7 +2359,7 @@
         <div class="step-content">
           <h3 class="sw-h3">SETTA LA TUA <span style="color:#fd9ef8">VIBE</span></h3>
           <p class="muted">
-            Il tuo profilo non è un magazzino. È il tuo archivio digitale. <br>
+            <strong style="color: #fff;">La tua identità, </strong> archiviata. <br>
             Racconta chi sei attraverso i pezzi che hai amato e che ora lasci andare.
           </p>
         </div>
@@ -2310,9 +2386,9 @@
     <div class="showcase-text">
       <h2 class="showcase-title">La tua nuova<br><span style="color: #fd9ef8;">ADDICTION.</span></h2>
       <p class="showcase-description">
-        Basta scrollare feed pieni di roba basic. <br>
-        Cerca il tuo prossimo grail e chiudi il deal. <br>
-        Lo scambio non è mai stato così veloce.
+        Basta scrollare feed pieni di <strong style="color: #fff;">roba basic.</strong> <br>
+        Cerca il tuo prossimo <strong style="color: #fff;">grail </strong> e chiudi il <strong style="color: #fff;">deal.</strong> <br>
+        Lo <strong style="color: #fd9ef8;">scambio</strong> non è mai stato così <strong style="color: #fff;">veloce.</strong>
       </p>
     </div>
 
@@ -2354,7 +2430,7 @@
           <div class="badge-icon">📍</div>
           <div class="badge-text">
             <strong>Pilota Attivo: Torino</strong><br>
-            <span class="muted">Prossime fermate: Milano, Bologna, Padova.</span>
+            <span class="muted">Prossime fermate: la tua città.</span>
           </div>
         </div>
       </div>
@@ -2439,8 +2515,9 @@
         </button>
         <div class="faq-answer">
           <p class="muted">
-             Swesh è un’app<strong> di scambio </strong>non di vendita.
+             Swesh non è un negozio. È un <strong>Archivio Collettivo.</strong>
              Qui gli oggetti non si comprano:<strong> si tramandano.</strong>
+             Il valore non è il prezzo, è la <strong>storia.</strong>
           </p>
         </div>
       </article>
@@ -2518,9 +2595,8 @@
         <div class="faq-answer">
           <p class="muted">
             Siamo in fase di <strong>pre-lancio</strong>.
-            Se lasci la tua email,
-            sarai tra i primi a sapere quando Swesh sarà disponibile
-            e potrai entrare nella community dalle prime fasi.
+            L'accesso è limitato e avviene a ondate ("Waves") per mantenere alta la qualità.
+            Non aspettare il lancio pubblico: entra ora o rischi di restare fuori quando chiudiamo le porte.
           </p>
         </div>
       </article>
@@ -2533,26 +2609,12 @@
         </button>
         <div class="faq-answer">
           <p class="muted">
-            Ti avviseremo sul <strong>lancio dell’app</strong>, sulle novità della community
-            e su contenuti legati a <strong>Swesh</strong>.
+            Attivi il <strong>radar. </strong> Swesh non è per <strong>tutti</strong>, è una community curata. La tua email avvia il processo di <strong>selezione.</strong> Se il tuo profilo passa il <strong>vibe check, </strong> riceverai il <strong>codice d'invito</strong> personale per saltare <strong>la coda.</strong>
           </p>
         </div>
       </article>
 
-      <!-- FAQ 10 -->
-      <article class="faq-item">
-        <button class="faq-question" type="button">
-          <h3 class="sw-h3">Posso cancellare la mia iscrizione?</h3>
-          <span class="faq-toggle" aria-hidden="true"></span>
-        </button>
-        <div class="faq-answer">
-          <p class="muted">
-            Sì, puoi <strong>disiscriverti</strong> in qualsiasi momento dai nostri aggiornamenti
-            e chiedere la gestione dei tuoi dati come indicato nella
-            <a href="privacy.html" style="font-size:1.2rem">Privacy Policy</a>.
-          </p>
-        </div>
-      </article>
+     
 
     </div>
   </div>
@@ -2567,7 +2629,7 @@
 <section class="container" style="padding-bottom:100px;">
     <div class="panel center muted" style="font-size:.9rem; color: #ffffff; text-align: center;">
       
-      © <span id="year"></span> SWESH — Ciò che sei continua
+      © <span id="year"></span> SWESH — Ciò che sei continua.
       
       <div style="margin: 20px 0;">
           <a href="https://www.instagram.com/swesh.it/" target="_blank" style="font-size:1.2rem; color: #ffffff; text-decoration: none;">
